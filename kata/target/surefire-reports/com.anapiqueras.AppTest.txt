@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------------
+Test set: com.anapiqueras.AppTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 6, Errors: 12, Skipped: 0, Time elapsed: 0.093 s <<< FAILURE! - in com.anapiqueras.AppTest
+fourBooksThreeDifferentsPlusOne(com.anapiqueras.AppTest)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at com.anapiqueras.AppTest.fourBooksThreeDifferentsPlusOne(AppTest.java:121)
+
+fiveBooksEquals(com.anapiqueras.AppTest)  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.AssertionError: expected:<40.0> but was:<0.0>
+	at com.anapiqueras.AppTest.fiveBooksEquals(AppTest.java:127)
+
+fourBooksTwoDifferentsForTwo(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at com.anapiqueras.AppTest.fourBooksTwoDifferentsForTwo(AppTest.java:115)
+
+fourBooksTwoDifferentsPlusTwoEquals(com.anapiqueras.AppTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at com.anapiqueras.AppTest.fourBooksTwoDifferentsPlusTwoEquals(AppTest.java:109)
+
+oneBook(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at com.anapiqueras.AppTest.oneBook(AppTest.java:61)
+
+threeBooksEquals(com.anapiqueras.AppTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at com.anapiqueras.AppTest.threeBooksEquals(AppTest.java:79)
+
+anyBook(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.anapiqueras.AppTest.anyBook(AppTest.java:55)
+
+twoBooksEquals(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	at com.anapiqueras.AppTest.twoBooksEquals(AppTest.java:67)
+
+fiveBooksFourDifferentsPlusOne(com.anapiqueras.AppTest)  Time elapsed: 0.013 s  <<< FAILURE!
+java.lang.AssertionError: expected:<33.6> but was:<44.8>
+	at com.anapiqueras.AppTest.fiveBooksFourDifferentsPlusOne(AppTest.java:151)
+
+twoBooksDifferents(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	at com.anapiqueras.AppTest.twoBooksDifferents(AppTest.java:73)
+
+fiveBooksThreeDifferentsPlusTwoEquals(com.anapiqueras.AppTest)  Time elapsed: 0.006 s  <<< FAILURE!
+java.lang.AssertionError: expected:<37.6> but was:<33.6>
+	at com.anapiqueras.AppTest.fiveBooksThreeDifferentsPlusTwoEquals(AppTest.java:145)
+
+fourBooksDifferents(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at com.anapiqueras.AppTest.fourBooksDifferents(AppTest.java:103)
+
+threeBooksTwoDifferentsPlusOne(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at com.anapiqueras.AppTest.threeBooksTwoDifferentsPlusOne(AppTest.java:91)
+
+fiveBooksTwoDifferentsForTwoPlusOne(com.anapiqueras.AppTest)  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError: expected:<38.4> but was:<21.6>
+	at com.anapiqueras.AppTest.fiveBooksTwoDifferentsForTwoPlusOne(AppTest.java:157)
+
+fiveBooksDifferents(com.anapiqueras.AppTest)  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: expected:<30.0> but was:<70.4>
+	at com.anapiqueras.AppTest.fiveBooksDifferents(AppTest.java:133)
+
+threeBooksDifferents(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at com.anapiqueras.AppTest.threeBooksDifferents(AppTest.java:85)
+
+fiveBooksTwoDifferentsPlusThreeEquals(com.anapiqueras.AppTest)  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError: expected:<39.2> but was:<25.6>
+	at com.anapiqueras.AppTest.fiveBooksTwoDifferentsPlusThreeEquals(AppTest.java:139)
+
+fourBooksEquals(com.anapiqueras.AppTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+	at com.anapiqueras.AppTest.fourBooksEquals(AppTest.java:97)
+

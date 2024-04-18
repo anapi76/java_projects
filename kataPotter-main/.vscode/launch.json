@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.example.App",
+      "projectName": "demo"
+    },
+    {
+      "type": "java",
+      "name": "Run with AppMap",
+      "request": "launch",
+      "mainClass": "",
+      "vmArgs": "-javaagent:${userHome}/.appmap/lib/java/appmap.jar"
+    }
+  ]
+}

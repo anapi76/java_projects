@@ -1,0 +1,30 @@
+Ejercicio 5 de Java Spring: Securización de Endpoints con JWT y Servicio de Login
+
+Siguiendo los apartados anteriores, agregar seguridad a los endpoints existentes utilizando JWT 
+(JSON Web Tokens). 
+Además, debes implementar un nuevo servicio de login para la obtención de dicho token.
+
+Requisitos que debes de tener en cuenta:
+
+Implementa un servicio de login que acepte credenciales de usuario 
+(por ejemplo, nombre de usuario y contraseña) y devuelva un token JWT válido.
+
+Utiliza una biblioteca como Spring Security para agregar seguridad basada en token a tus endpoints existentes. 
+Configura Spring Security para requerir un token JWT válido para acceder a los endpoints.
+
+Añade un filtro de seguridad en la configuración de Spring Security para validar el token JWT en las solicitudes entrantes.
+
+Modifica el controlador y los servicios existentes según sea necesario para trabajar con la seguridad implementada. 
+Asegúrate de que los endpoints estén correctamente protegidos y solo sean accesibles con un token JWT válido.
+
+Actualiza la documentación de la API para incluir detalles sobre cómo obtener y utilizar el token JWT para acceder a los endpoints protegidos.
+
+Implementa dos roles de usuario diferentes: administrador y usuario. 
+Los roles usuario solo tendrán permisos para realizar peticiones de consulta, y el rol de admin podrá hacer peticiones de consulta, y además, 
+podrá realizar peticiones para crear, modificar y eliminar.
+
+Ejecuta pruebas para verificar que los endpoints estén protegidos correctamente y que el servicio de login funcione como se espera, 
+recuerda realizar capturas para evidenciar dichos resultados.
+
+Insistimos en esto, puedes probar a implementar el test primero y luego desarrollar el código (TDD), pero esto es opcional, 
+lo más importante es que estén los test, sí o sí.

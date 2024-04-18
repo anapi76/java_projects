@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ApicopyenumApplication",
+            "request": "launch",
+            "mainClass": "com.anapiqueras.apicopyenum.ApicopyenumApplication"
+        },
+        {
+            "type": "java",
+            "name": "ApiApplication",
+            "request": "launch",
+            "mainClass": "com.anapiqueras.api.ApiApplication"
+        },
+        {
+            "type": "java",
+            "name": "ApiApplication",
+            "request": "launch",
+            "mainClass": "com.anapiqueras.apicopy.ApiApplication",
+            "projectName": "com.anapiqueras-api"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiApplication<api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.anapiqueras.api.ApiApplication",
+            "projectName": "api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

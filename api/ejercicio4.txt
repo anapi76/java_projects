@@ -1,0 +1,58 @@
+
+Exercise 4 of REST API Creation and Database Connection 
+
+ 
+
+Following the previous sections, you now need to make changes so that the existing application uses a database with JPA (Java Persistence API) instead of loading objects into memory at startup. Additionally, you should create a repository layer to manage the connections and data loading from the database. 
+
+Requirements to consider: 
+
+Configure your application to use a JPA-compatible database, such as MySQL, PostgreSQL, or H2 Database. Ensure to include the necessary dependencies. 
+
+Make the necessary changes so that, in addition to having a record of the products, there is also a listing of types and stock associated with those products. 
+
+Define a JPA entity to represent the objects in your database. Annotate the class with the appropriate JPA annotations, such as @Entity, @Id, etc. 
+
+Implement a repository using Spring Data JPA. This repository should extend the JpaRepository interface and provide methods to perform CRUD operations in the database for the entity defined in the previous step. 
+
+Update the ProductService to use the repository instead of the in-memory data to access the database data. 
+
+Use a documentation tool to consult all the endpoints and contracts needed to use the API. 
+
+Check that the application still works correctly after the migration and refactoring. Conduct the relevant tests to ensure that the data is being correctly retrieved from the database and take screenshots to demonstrate these tests and results. 
+
+We emphasize this, you may try to implement the test first and then develop the code (TDD), but this is optional. The most important thing is that the tests are there, without fail. 
+
+Principio del formulario 
+
+ 
+
+ 
+
+Siguiendo las secciones anteriores, ahora debe realizar cambios para que la aplicación existente utilice una base de datos con JPA 
+(API de persistencia de Java) en lugar de cargar objetos en la memoria al inicio. Además, debe crear una capa de repositorio para 
+administrar las conexiones y la carga de datos desde la base de datos.  
+
+Requisitos a tener en cuenta:  
+
+Configure la aplicación para que utilice una base de datos compatible con JPA, como MySQL, PostgreSQL o H2 Database. 
+Asegúrese de incluir las dependencias necesarias. 
+
+Realizar los cambios necesarios para que, además de tener un registro de los productos, también exista un listado de tipos y 
+stock asociados a esos productos.  
+
+Defina una entidad JPA para representar los objetos de la base de datos. Anote la clase con las anotaciones JPA adecuadas, 
+como @Entity, @Id, etc.  
+
+Implemente un repositorio utilizando Spring Data JPA. Este repositorio debe ampliar la interfaz JpaRepository y proporcionar métodos 
+para realizar operaciones CRUD en la base de datos para la entidad definida en el paso anterior.  
+
+Actualice ProductService para usar el repositorio en lugar de los datos en memoria para acceder a los datos de la base de datos. 
+Utilice una herramienta de documentación para consultar todos los puntos de conexión y contratos necesarios para utilizar la API. 
+Compruebe que la aplicación sigue funcionando correctamente después de la migración y la refactorización. 
+Realice las pruebas pertinentes para asegurarse de que los datos se recuperan correctamente de la base de datos y tome capturas de 
+pantalla para demostrar estas pruebas y resultados. 
+Hacemos hincapié en esto, puede intentar implementar la prueba primero y luego desarrollar el código (TDD), pero esto es opcional. 
+Lo más importante es que las pruebas estén ahí, sin falta. Principio del formulario 
+
+ 
