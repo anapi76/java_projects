@@ -3,7 +3,6 @@ package com.anapiqueras.api.controller;
 import java.util.List;
 
 import org.springframework.http.*;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,6 @@ public class TypeProductController {
     }
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     public ResponseEntity<List<TypeProductDTO>> findAll() {
         List<TypeProductDTO> typeProducts = typeProductService.findAll();
         if (typeProducts.isEmpty()) {
@@ -33,7 +31,6 @@ public class TypeProductController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     public ResponseEntity<TypeProductDTO> findTypeProductById(@PathVariable int id) {
         try {
             TypeProductDTO typeProduct = typeProductService.findTypeProductById(id);

@@ -3,7 +3,6 @@ package com.anapiqueras.api.controller;
 import java.util.List;
 
 import org.springframework.http.*;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,6 @@ import com.anapiqueras.api.mapper.ControllerMapperDTO;
 
 @Controller
 @RequestMapping("/product")
-@PreAuthorize("DenyAll()")
 public class ProductController {
 
     public iProductService productService;
@@ -28,8 +26,7 @@ public class ProductController {
         this.controllerMapperDto = controllerMapperDto;
     }
 
-    @GetMapping()
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @GetMapping("/")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
         if (products.isEmpty()) {
@@ -39,7 +36,6 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     public ResponseEntity<ProductDTO> findProductById(@PathVariable int id) {
         try {
             ProductDTO product = productService.findProductById(id);
@@ -50,7 +46,6 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTOController productController) {
         try {
             ProductDTO productDto = controllerMapperDto.mapToProductDto(productController);
@@ -67,7 +62,6 @@ public class ProductController {
     }
 
     @PutMapping("/update/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ProductDTO> updateProduct(@PathVariable int id,
             @RequestBody ProductDTOController productController) {
         try {
@@ -82,7 +76,6 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<String> deleteProductById(@PathVariable int id) {
         try {
             productService.deleteProductById(id);

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -42,23 +43,28 @@ public class SecurityConfig {
                 .authorizeHttpRequests(http -> {
                     http.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/product/*").hasAnyRole("ADMIN", "USER");
+                    http.requestMatchers(HttpMethod.POST, "/product/").hasRole("ADMIN");
+                    http.requestMatchers(HttpMethod.PUT, "/product/*").hasRole("ADMIN");
+                    http.requestMatchers(HttpMethod.DELETE, "/product/*").hasRole("ADMIN");
+                    http.requestMatchers(HttpMethod.GET, "/typeProduct/*").hasAnyRole("ADMIN", "USER");
+                    http.requestMatchers(HttpMethod.GET, "/users").hasAnyRole("ADMIN", "USER");
                     http.anyRequest().denyAll();
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-            throws Exception {
+    @Bean 
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
     public AuthenticationProvider authenticationProvider(UserDetailServiceImpl userDetailService) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passwordEncoder());
         provider.setUserDetailsService(userDetailService);
+        provider.setPasswordEncoder(passwordEncoder());
+
         return provider;
     }
 

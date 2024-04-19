@@ -28,14 +28,13 @@ public class JwtUtils {
 
     public String createToken(Authentication authentication) {
         Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
-        String userName = authentication.getPrincipal().toString();
+        String username = authentication.getPrincipal().toString();
         String authorities = authentication.getAuthorities().stream().map(g -> g.getAuthority().toString())
                 .collect(Collectors.joining(","));
-        // System.out.println(authorities);
-
+                System.out.println(authorities);
         String jwtToken = JWT.create()
                 .withIssuer(this.userGenerator)
-                .withSubject(userName)
+                .withSubject(username)
                 .withClaim("authorities", authorities)
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))

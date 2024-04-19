@@ -27,46 +27,45 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private JwtUtils jwtUtils;
     private PasswordEncoder passwordEncoder;
 
-    public UserDetailServiceImpl(iUserRepository userRepository, JwtUtils jwtUtils,PasswordEncoder passwordEncoder) {
+    public UserDetailServiceImpl(iUserRepository userRepository, JwtUtils jwtUtils, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.jwtUtils = jwtUtils;
-        this.passwordEncoder=passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findOneByUserName(userName)
-                .orElseThrow(() -> new UsernameNotFoundException("Username " + userName + "not found."));
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepository.findOneByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Username " + username + "not found."));
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(userEntity.getRole().getName())));
-        return new User(userEntity.getUserName(), userEntity.getPassword(), userEntity.isEnabled(),
+        return new User(userEntity.getUsername(), userEntity.getPassword(), userEntity.isEnabled(),
                 userEntity.isAccountNoExpired(), userEntity.isCredentialNoExpired(), userEntity.isAccountNoLocked(),
                 authorityList);
     }
 
-    public AuthResponse loginUser(LoginRequest authLoginRequest) {
-        String userName = authLoginRequest.userName();
-        String password = authLoginRequest.password();
-
-        Authentication authentication = this.authenticate(userName, password);
-        //System.out.println(authentication.getAuthorities());
+    public AuthResponse loginUser(LoginRequest loginRequest) {
+        String username = loginRequest.username();
+        String password = loginRequest.password();
+        Authentication authentication = this.authenticate(username, password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String accesToken = jwtUtils.createToken(authentication);
-        AuthResponse authResponse = new AuthResponse(userName, "User logged succesfully",accesToken, true);
+        AuthResponse authResponse = new AuthResponse(username, "User logged succesfully", accesToken,
+                true);
         return authResponse;
     }
 
-    public Authentication authenticate(String userName, String password) {
-        UserDetails userDetails = this.loadUserByUsername((userName));
+    public Authentication authenticate(String username, String password) {
+        UserDetails userDetails = this.loadUserByUsername((username));
         if (userDetails == null) {
-            throw new BadCredentialsException("Invalid username or password");
+            throw new UsernameNotFoundException("Invalid username");
         }
-        if(!passwordEncoder.matches(password, userDetails.getPassword())){
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Invalid password");
         }
-        //System.out.println(userDetails.getAuthorities());
-        return new UsernamePasswordAuthenticationToken(userName,userDetails.getPassword(),userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(username, userDetails.getPassword(),
+                userDetails.getAuthorities());
     }
 
 }

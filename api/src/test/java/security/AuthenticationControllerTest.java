@@ -36,9 +36,9 @@ public class AuthenticationControllerTest {
     @Test
     public void checkIfUserLoginValid() {
         // Arrange
-        LoginRequest authLoginRequest = new LoginRequest("ana", "1,2,3,4");
+        LoginRequest authLoginRequest = new LoginRequest("ana", "1234");
         AuthResponse authResponse = new AuthResponse("ana", "User logged successfully",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRIMEpXVCIsInN1YiI6ImFuYSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcxMzQyNzc5NSwiZXhwIjoxNzEzNDI5NTk1LCJqdGkiOiJkOTBkZWRhMC0yZGVhLTQ1MzMtYTM1Yi1mNzI1MGExODM4NWYiLCJuYmYiOjE3MTM0Mjc3OTV9.nOqiEIDpiG8knH5dgUAexjS-B9ofAJEJgfLfF46th24",
+                "token",
                 true);
         // Act
         when(userDetailService.loginUser(any(LoginRequest.class))).thenReturn(authResponse);
@@ -46,7 +46,7 @@ public class AuthenticationControllerTest {
         // Assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertNotNull(responseEntity.getBody());
-        assertEquals("ana", responseEntity.getBody().userName());
+        assertEquals("ana", responseEntity.getBody().username());
         assertEquals("User logged successfully", responseEntity.getBody().message());
         assertTrue(responseEntity.getBody().status());
     }
