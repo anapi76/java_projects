@@ -1,27 +1,52 @@
 package security;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.anapiqueras.api.util.JwtUtils;
 
 
-
-@ExtendWith(MockitoExtension.class)
 public class JwtUtilsTest {
 
+    
     @Mock
     private Authentication authentication;
 
     @InjectMocks
-    private JwtUtils jwtUtils;
+    JwtUtils jwtUtils;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     public void testCreateToken() {
+        // Arrange
+        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+        authorityList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        when(authentication.getPrincipal()).thenReturn("username");
+        //when(authentication.getAuthorities()).thenReturn(authorityList);
 
+        // Act
+        String token = jwtUtils.createToken(authentication);
+
+        // Assert
+        assertNotNull(token);
     }
+
 }
+

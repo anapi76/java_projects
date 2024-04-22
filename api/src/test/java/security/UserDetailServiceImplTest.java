@@ -36,8 +36,10 @@ public class UserDetailServiceImplTest {
 
     @Mock
     private iUserRepository userRepository;
+
     @Mock
     private JwtUtils jwtUtils;
+
     @Mock
     private PasswordEncoder passwordEncoder;
 
@@ -91,7 +93,7 @@ public class UserDetailServiceImplTest {
         // Act
         when(userRepository.findOneByUsername(anyString())).thenReturn(Optional.of(user));
         when(passwordEncoder.matches(password, userExpected.getPassword())).thenReturn(true);
-        Authentication authentication=userDetailService.authenticate(username, password);
+        Authentication authentication = userDetailService.authenticate(username, password);
         when(jwtUtils.createToken(authentication)).thenReturn(accessToken);
         AuthResponse authResponse = userDetailService.loginUser(loginRequest);
         // Asserts
@@ -129,7 +131,6 @@ public class UserDetailServiceImplTest {
         assertThrows(BadCredentialsException.class, () -> {
             userDetailService.authenticate(username, password);
         });
-
     }
 
     @Test
