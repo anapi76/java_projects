@@ -2,6 +2,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MicroserviceEurekaApplication",
+            "request": "launch",
+            "mainClass": "com.microservice.eureka.microserviceeureka.MicroserviceEurekaApplication",
+            "projectName": "microservice-eureka",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=52818 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-eureka"
+        },
+        {
+            "type": "java",
+            "name": "ApiUsersApplication",
+            "request": "launch",
+            "mainClass": "com.anapiqueras.api_users.ApiUsersApplication",
+            "projectName": "api_users"
+        },
+        {
+            "type": "java",
             "name": "ApicopyenumApplication",
             "request": "launch",
             "mainClass": "com.anapiqueras.apicopyenum.ApicopyenumApplication"
@@ -26,6 +41,49 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.anapiqueras.api.ApiApplication",
             "projectName": "api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceUserApplication<microservice-user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.user.microserviceuser.MicroserviceUserApplication",
+            "projectName": "microservice-user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53828 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-user"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceGatewayApplication<microservice-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.gateway.microservicegateway.MicroserviceGatewayApplication",
+            "projectName": "microservice-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57541 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-gateway"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceConfigApplication<microservice-config>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservices.config.microserviceconfig.MicroserviceConfigApplication",
+            "projectName": "microservice-config",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57168 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-config"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceProductApplication<microservice-product>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.product.microserviceproduct.MicroserviceProductApplication",
+            "projectName": "microservice-product",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

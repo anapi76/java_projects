@@ -3,7 +3,6 @@ package com.anapiqueras.api.controller;
 import java.util.List;
 
 import org.springframework.http.*;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.anapiqueras.api.controller.dto.ProductDTOController;
@@ -14,7 +13,7 @@ import com.anapiqueras.api.exceptions.ProductNotFoundException;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;
 import com.anapiqueras.api.mapper.ControllerMapperDTO;
 
-@Controller
+@RestController
 @RequestMapping("/product")
 public class ProductController {
 
@@ -29,10 +28,7 @@ public class ProductController {
     @GetMapping("/")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
-        if (products.isEmpty()) {
             return new ResponseEntity<>(products, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

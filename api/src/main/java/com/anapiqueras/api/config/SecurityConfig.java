@@ -42,11 +42,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(http -> {
                     http.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/product/*").hasAnyRole("ADMIN", "USER");
-                    http.requestMatchers(HttpMethod.POST, "/product/").hasRole("ADMIN");
-                    http.requestMatchers(HttpMethod.PUT, "/product/*").hasRole("ADMIN");
+                    http.requestMatchers(HttpMethod.POST, "/product/*").hasRole("ADMIN");
+                    http.requestMatchers(HttpMethod.PUT, "/product/update/*").hasRole("ADMIN");
                     http.requestMatchers(HttpMethod.DELETE, "/product/*").hasRole("ADMIN");
                     http.requestMatchers(HttpMethod.GET, "/typeProduct/*").hasAnyRole("ADMIN", "USER");
                     http.requestMatchers(HttpMethod.GET, "/users").hasAnyRole("ADMIN", "USER");
+                    http.requestMatchers("/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**").permitAll();
                     http.anyRequest().denyAll();
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)

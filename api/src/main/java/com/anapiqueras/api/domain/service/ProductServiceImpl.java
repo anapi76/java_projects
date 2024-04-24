@@ -36,14 +36,16 @@ public class ProductServiceImpl implements iProductService {
     }
 
     @Override
-    public ProductDTO createProduct(ProductDTO productDto)throws TypeProductNotFoundException, ProductCantBeNullException {
+    public ProductDTO createProduct(ProductDTO productDto)
+            throws TypeProductNotFoundException, ProductCantBeNullException {
         if (productDto == null) {
             throw new ProductCantBeNullException("Product can't be null");
         }
         if (!validateProduct(productDto)) {
             return null;
         }
-        TypeProductDTO typeProduct = typeProductRepository.findTypeProductById(productDto.getTypeProductDto().getIdTypeProduct());
+        TypeProductDTO typeProduct = typeProductRepository
+                .findTypeProductById(productDto.getTypeProductDto().getIdTypeProduct());
         productDto.setTypeProductDto(typeProduct);
         ProductDTO createdProduct = productRepository.createProduct(productDto);
 
@@ -51,25 +53,17 @@ public class ProductServiceImpl implements iProductService {
     }
 
     @Override
-    public ProductDTO updateProduct(int id, ProductDTO productDto) throws ProductNotFoundException, TypeProductNotFoundException {
+    public ProductDTO updateProduct(int id, ProductDTO productDto)
+            throws ProductNotFoundException, TypeProductNotFoundException {
         ProductDTO productFound = productRepository.findProductById(id);
         productFound.setIdProduct(id);
-        if (productDto.getName() != null) {
-            productFound.setName(productDto.getName());
-        }
-        if (productDto.getDescription() != null) {
-            productFound.setDescription(productDto.getDescription());
-        }
-        if (productDto.getPrice() != null) {
-            productFound.setPrice(productDto.getPrice());
-        }
-        if (productDto.getStock() != null) {
-            productFound.setStock(productDto.getStock());
-        }
-        if (productDto.getTypeProductDto() != null) {
-            TypeProductDTO typeProduct = typeProductRepository.findTypeProductById(productDto.getTypeProductDto().getIdTypeProduct());
-            productFound.setTypeProductDto(typeProduct);
-        }
+        productFound.setName(productDto.getName());
+        productFound.setDescription(productDto.getDescription());
+        productFound.setPrice(productDto.getPrice());
+        productFound.setStock(productDto.getStock());
+        TypeProductDTO typeProduct = typeProductRepository
+                .findTypeProductById(productDto.getTypeProductDto().getIdTypeProduct());
+        productFound.setTypeProductDto(typeProduct);
         ProductDTO updatedProduct = productRepository.updateProduct(productFound);
         return updatedProduct;
     }
