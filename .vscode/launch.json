@@ -85,6 +85,17 @@
             "mainClass": "com.microservice.product.microserviceproduct.MicroserviceProductApplication",
             "projectName": "microservice-product",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61078 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=microservice-product"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceAuthApplication<microservice-auth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.auth.microserviceauth.MicroserviceAuthApplication",
+            "projectName": "microservice-auth",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]
