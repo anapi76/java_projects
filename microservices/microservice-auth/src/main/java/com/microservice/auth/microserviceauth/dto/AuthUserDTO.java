@@ -2,7 +2,7 @@ package com.microservice.auth.microserviceauth.dto;
 
 public class AuthUserDTO {
 
-    private int idUser;
+    private int idAuth;
     private String username;
     private String password;
     private RoleDTO role;
@@ -10,19 +10,19 @@ public class AuthUserDTO {
     public AuthUserDTO() {
     }
     
-    public AuthUserDTO(int idUser,String username, String password, RoleDTO role) {
-        this.idUser=idUser;
+    public AuthUserDTO(int idAuth,String username, String password, RoleDTO role) {
+        this.idAuth=idAuth;
         this.username = username;
         this.password = password;
         this.role=role;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getIdAuth() {
+        return idAuth;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setIdAuth(int idAuth) {
+        this.idAuth = idAuth;
     }
 
     public String getUsername() {

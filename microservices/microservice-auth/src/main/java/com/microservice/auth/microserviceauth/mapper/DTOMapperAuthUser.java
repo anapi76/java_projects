@@ -19,7 +19,7 @@ public class DTOMapperAuthUser {
             authUserDto.getUsername(),
             authUserDto.getPassword(),
             role);
-            authUser.setIdAuth(authUserDto.getIdUser());
+            authUser.setIdAuth(authUserDto.getIdAuth());
        /*      authUser.setEnabled(authUserDto.isEnabled());
             authUser.setAccountNoExpired(authUserDto.isAccountNoExpired());
             authUser.setAccountNoLocked(authUserDto.isAccountNoLocked());

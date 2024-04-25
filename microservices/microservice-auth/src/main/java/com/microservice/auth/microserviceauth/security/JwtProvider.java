@@ -3,8 +3,8 @@ package com.microservice.auth.microserviceauth.security;
 import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.Map;
-//import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import com.auth0.jwt.JWT;
@@ -19,13 +19,13 @@ public class JwtProvider {
 
     private final int EXPIRATION_TIME = 1800000;
 
-    /* @Value("${jwt.key.private}")
+    @Value("${jwt.key}")
     private String privateKey;
 
     @Value("${jwt.issuer}")
-    private String issuer; */
+    private String issuer;
 
-    /* public String createToken(Authentication authentication) {
+    public String createToken(Authentication authentication) {
         Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
         String username = authentication.getPrincipal().toString();
         String authorities = authentication.getAuthorities().stream().map(g -> g.getAuthority().toString())
@@ -39,9 +39,9 @@ public class JwtProvider {
                 .withNotBefore(new Date(System.currentTimeMillis()))
                 .sign(algorithm);
         return jwtToken;
-    } */
+    }
 
- /*    public DecodedJWT validateToken(String token) {
+    public DecodedJWT validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
 
@@ -53,7 +53,7 @@ public class JwtProvider {
         } catch (JWTVerificationException exception) {
             throw new JWTVerificationException("Invalid token, not authorized");
         }
-    } */
+    }
 
     public String extractUserName(DecodedJWT decodedJWT) {
         return decodedJWT.getSubject().toString();

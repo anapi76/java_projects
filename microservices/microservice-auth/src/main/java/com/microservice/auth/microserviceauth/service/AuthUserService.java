@@ -1,10 +1,17 @@
 package com.microservice.auth.microserviceauth.service;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.Authentication;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Service;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.microservice.auth.microserviceauth.dto.AuthResponse;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTO;
+import com.microservice.auth.microserviceauth.dto.LoginRequest;
 import com.microservice.auth.microserviceauth.dto.RoleDTO;
+import com.microservice.auth.microserviceauth.dto.TokenDTO;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserCantBeNullException;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserNotFoundException;
 import com.microservice.auth.microserviceauth.exceptions.RoleNotFoundException;
@@ -12,40 +19,25 @@ import com.microservice.auth.microserviceauth.repository.iAuthUserRepository;
 import com.microservice.auth.microserviceauth.repository.iRoleRepository;
 import com.microservice.auth.microserviceauth.security.JwtProvider;
 import com.microservice.auth.microserviceauth.security.PasswordEncoderConfig;
+import com.microservice.auth.microserviceauth.security.UserDetailServiceImpl;
 
 @Service
-public class AuthUserService implements iAuthUserService{
+public class AuthUserService implements iAuthUserService {
 
     private iAuthUserRepository authUserRepository;
-    private PasswordEncoderConfig passwordEncoder;
+    private PasswordEncoderConfig passwordEncoderConfig;
     private JwtProvider jwtProvider;
     public iRoleRepository roleRepository;
+    private UserDetailServiceImpl userDetailsService;
 
-    public AuthUserService(iAuthUserRepository authUserRepository, PasswordEncoderConfig passwordEncoder,
-            JwtProvider jwtProvider, iRoleRepository roleRepository) {
+    public AuthUserService(iAuthUserRepository authUserRepository, PasswordEncoderConfig passwordEncoderConfig,
+            JwtProvider jwtProvider, iRoleRepository roleRepository, UserDetailServiceImpl userDetailsService) {
         this.authUserRepository = authUserRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoderConfig = passwordEncoderConfig;
         this.jwtProvider = jwtProvider;
         this.roleRepository = roleRepository;
+        this.userDetailsService=userDetailsService;
     }
-
-    /*
-     * public TokenDTO login(@RequestBody AuthUserDTO authUserDto) {
-     * TokenDTO tokenDto = authUserService.login(authUserDto);
-     * if (tokenDto == null) {
-     * return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-     * }
-     * return new ResponseEntity<>(tokenDto, HttpStatus.OK);
-     * }
-     * 
-     * public TokenDTO validate(@RequestParam String token) {
-     * TokenDTO tokenDto = authUserService.validate(token);
-     * if (tokenDto == null) {
-     * return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-     * }
-     * return new ResponseEntity<>(tokenDto, HttpStatus.OK);
-     * }
-     */
 
     @Override
     public AuthUserDTO create(AuthUserDTO authUserDto) throws AuthUserCantBeNullException, RoleNotFoundException {
@@ -56,11 +48,23 @@ public class AuthUserService implements iAuthUserService{
             return null;
         }
         RoleDTO roleDto = roleRepository.findRoleById(authUserDto.getRole().getIdRole());
-        String passwordEncode = passwordEncoder.passwordEncoder().encode(authUserDto.getPassword());
+        String passwordEncode = passwordEncoderConfig.passwordEncoder().encode(authUserDto.getPassword());
         authUserDto.setPassword(passwordEncode);
         authUserDto.setRole(roleDto);
         AuthUserDTO authUserDtoCreated = authUserRepository.create(authUserDto);
         return authUserDtoCreated;
+    }
+
+    public AuthResponse login(LoginRequest loginRequest) {
+        String username = loginRequest.username();
+        String password = loginRequest.password();
+        Authentication authentication = userDetailsService.authenticate(username, password);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String accesToken = jwtProvider.createToken(authentication);
+        AuthResponse authResponse = new AuthResponse(username, "User logged succesfully", accesToken,
+                true);
+        return authResponse;
     }
 
     public Boolean validateAuthUser(AuthUserDTO authUserDto) {
@@ -78,5 +82,6 @@ public class AuthUserService implements iAuthUserService{
             return true;
         }
     }
+    
 
 }

@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.microservice.auth.microserviceauth.dto.AuthResponse;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTO;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTOController;
+import com.microservice.auth.microserviceauth.dto.LoginRequest;
 import com.microservice.auth.microserviceauth.dto.TokenDTO;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserCantBeNullException;
 import com.microservice.auth.microserviceauth.exceptions.RoleNotFoundException;
 import com.microservice.auth.microserviceauth.mapper.ControllerMapperDTO;
+import com.microservice.auth.microserviceauth.security.JwtProvider;
 import com.microservice.auth.microserviceauth.service.iAuthUserService;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,33 +27,16 @@ public class AuthUserController {
 
     private iAuthUserService authUserService;
     private ControllerMapperDTO controllerMapperDto;
+    private JwtProvider jwtProvider;
 
-    public AuthUserController(iAuthUserService authUserService, ControllerMapperDTO controllerMapperDto) {
+    public AuthUserController(iAuthUserService authUserService, ControllerMapperDTO controllerMapperDto,
+            JwtProvider jwtProvider) {
         this.authUserService = authUserService;
         this.controllerMapperDto = controllerMapperDto;
+        this.jwtProvider = jwtProvider;
     }
 
-    /*
-     * @PostMapping("/login")
-     * public ResponseEntity<TokenDTO> login (@RequestBody AuthUserDTO authUserDto){
-     * TokenDTO tokenDto=authUserService.login(authUserDto);
-     * if(tokenDto==null){
-     * return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-     * }
-     * return new ResponseEntity<>(tokenDto, HttpStatus.OK);
-     * }
-     * 
-     * @PostMapping("/")
-     * public ResponseEntity<TokenDTO> validate (@RequestParam String token){
-     * TokenDTO tokenDto=authUserService.validate(token);
-     * if(tokenDto==null){
-     * return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-     * }
-     * return new ResponseEntity<>(tokenDto, HttpStatus.OK);
-     * }
-     */
-
-    @PostMapping("/create")
+    @PostMapping("/register")
     public ResponseEntity<AuthUserDTO> create(@RequestBody AuthUserDTOController authUserDtoController) {
         try {
             AuthUserDTO authUserDto = controllerMapperDto.mapToAuthUserDto(authUserDtoController);
@@ -64,4 +52,19 @@ public class AuthUserController {
         }
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
+        AuthResponse authResponse = authUserService.login(loginRequest);
+        return new ResponseEntity<>(authResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<String> validate(@RequestBody TokenDTO tokenDTO) {
+        try {
+            jwtProvider.validateToken(tokenDTO.getToken());
+            return new ResponseEntity<>("Valid token", HttpStatus.OK);
+        } catch (JWTVerificationException jwte) {
+            return new ResponseEntity<>("Invalid token, not authorized",HttpStatus.UNAUTHORIZED);
+        }
+    }
 }

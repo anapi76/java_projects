@@ -28,7 +28,7 @@ public class InitialData implements CommandLineRunner {
 
         userDao.save(new UserEntity("ana", "abp", "ana@gmail.com",
                 "$2a$10$l1QcFcgeVVN.1c/LIAkVmulnBJfeypbhKvOquqEAicoEljEiWkr1G", roleAdmin));
-        userDao.save(new UserEntity("hugo", "hgp","alejandro@gmail.com",
+        userDao.save(new UserEntity("hugo", "hgp","hgp@gmail.com",
                 "$2a$10$l1QcFcgeVVN.1c/LIAkVmulnBJfeypbhKvOquqEAicoEljEiWkr1G", roleUser));
        
     }
