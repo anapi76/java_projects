@@ -1,0 +1,21 @@
+Ejercicio 6 de Java Spring: Creación de Microservicio de Usuarios con CRUD
+
+Siguiendo los apartados anteriores, ahora crea un nuevo microservicio o proyecto, que se encargará de gestionar la entidad de usuarios, incluyendo operaciones CRUD (Crear, Leer, Actualizar, Borrar).
+
+Requisitos que debes de tener en cuenta:
+
+Crea una nueva aplicación Spring Boot para el microservicio de usuarios.
+
+Define una entidad de usuario que represente la información relevante de un usuario, como nombre, correo electrónico, contraseña, etc.
+
+Implementa un repositorio utilizando Spring Data JPA para gestionar la entidad de usuario. Este repositorio debe extender la interfaz JpaRepository y proporcionar métodos para realizar operaciones CRUD en la base de datos para la entidad de Usuario.
+
+Crea un controlador para el microservicio de usuarios que exponga endpoints para las operaciones CRUD en los usuarios. Utiliza las anotaciones de Spring adecuadas para mapear los endpoints y manejar las solicitudes HTTP.
+
+Implementa la validación de datos de usuario en el controlador y/o en el servicio para garantizar la integridad de los datos durante las operaciones CRUD
+
+Implementa seguridad en el microservicio de usuarios utilizando tokens JWT (JSON Web Tokens) como se ha descrito en ejercicios anteriores. Asegúrate de que los endpoints estén protegidos y solo sean accesibles con un token JWT válido.
+
+Documenta la API del microservicio de usuarios, incluyendo detalles sobre los endpoints disponibles, los parámetros de solicitud requeridos y las respuestas esperadas.
+
+Insistimos en esto, puedes probar a implementar el test primero y luego desarrollar el código (TDD), pero esto es opcional, lo más importante es que estén los test, sí o sí.

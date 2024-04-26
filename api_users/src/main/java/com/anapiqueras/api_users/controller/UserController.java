@@ -22,7 +22,7 @@ import com.anapiqueras.api_users.exceptions.UserNotFoundException;
 import com.anapiqueras.api_users.mapper.ControllerMapperDTO;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     public iUserService userService;
