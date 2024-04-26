@@ -6,35 +6,32 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import org.springframework.stereotype.Service;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
+import com.microservice.auth.microserviceauth.config.PasswordEncoderConfig;
+import com.microservice.auth.microserviceauth.config.UserDetailServiceImpl;
 import com.microservice.auth.microserviceauth.dto.AuthResponse;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTO;
 import com.microservice.auth.microserviceauth.dto.LoginRequest;
 import com.microservice.auth.microserviceauth.dto.RoleDTO;
-import com.microservice.auth.microserviceauth.dto.TokenDTO;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserCantBeNullException;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserNotFoundException;
 import com.microservice.auth.microserviceauth.exceptions.RoleNotFoundException;
 import com.microservice.auth.microserviceauth.repository.iAuthUserRepository;
 import com.microservice.auth.microserviceauth.repository.iRoleRepository;
-import com.microservice.auth.microserviceauth.security.JwtProvider;
-import com.microservice.auth.microserviceauth.security.PasswordEncoderConfig;
-import com.microservice.auth.microserviceauth.security.UserDetailServiceImpl;
 
 @Service
 public class AuthUserService implements iAuthUserService {
 
     private iAuthUserRepository authUserRepository;
     private PasswordEncoderConfig passwordEncoderConfig;
-    private JwtProvider jwtProvider;
+    private JwtService jwtService;
     public iRoleRepository roleRepository;
     private UserDetailServiceImpl userDetailsService;
 
     public AuthUserService(iAuthUserRepository authUserRepository, PasswordEncoderConfig passwordEncoderConfig,
-            JwtProvider jwtProvider, iRoleRepository roleRepository, UserDetailServiceImpl userDetailsService) {
+            JwtService jwtService, iRoleRepository roleRepository, UserDetailServiceImpl userDetailsService) {
         this.authUserRepository = authUserRepository;
         this.passwordEncoderConfig = passwordEncoderConfig;
-        this.jwtProvider = jwtProvider;
+        this.jwtService = jwtService;
         this.roleRepository = roleRepository;
         this.userDetailsService=userDetailsService;
     }
@@ -61,10 +58,14 @@ public class AuthUserService implements iAuthUserService {
         Authentication authentication = userDetailsService.authenticate(username, password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String accesToken = jwtProvider.createToken(authentication);
+        String accesToken = jwtService.generateToken(authentication);
         AuthResponse authResponse = new AuthResponse(username, "User logged succesfully", accesToken,
                 true);
         return authResponse;
+    }
+
+    public void validate(String token){
+        jwtService.validateToken(token);
     }
 
     public Boolean validateAuthUser(AuthUserDTO authUserDto) {

@@ -1,4 +1,4 @@
-package com.microservice.auth.microserviceauth.security;
+package com.microservice.auth.microserviceauth.config;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

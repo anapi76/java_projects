@@ -26,7 +26,7 @@ public class ProductController {
         this.controllerMapperDto = controllerMapperDto;
     }
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
             return new ResponseEntity<>(products, HttpStatus.OK);

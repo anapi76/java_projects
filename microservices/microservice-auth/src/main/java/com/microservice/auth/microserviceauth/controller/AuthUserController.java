@@ -4,11 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.auth0.jwt.interfaces.DecodedJWT;
+
 import com.microservice.auth.microserviceauth.dto.AuthResponse;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTO;
 import com.microservice.auth.microserviceauth.dto.AuthUserDTOController;
@@ -17,7 +16,6 @@ import com.microservice.auth.microserviceauth.dto.TokenDTO;
 import com.microservice.auth.microserviceauth.exceptions.AuthUserCantBeNullException;
 import com.microservice.auth.microserviceauth.exceptions.RoleNotFoundException;
 import com.microservice.auth.microserviceauth.mapper.ControllerMapperDTO;
-import com.microservice.auth.microserviceauth.security.JwtProvider;
 import com.microservice.auth.microserviceauth.service.iAuthUserService;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,13 +25,10 @@ public class AuthUserController {
 
     private iAuthUserService authUserService;
     private ControllerMapperDTO controllerMapperDto;
-    private JwtProvider jwtProvider;
 
-    public AuthUserController(iAuthUserService authUserService, ControllerMapperDTO controllerMapperDto,
-            JwtProvider jwtProvider) {
+    public AuthUserController(iAuthUserService authUserService, ControllerMapperDTO controllerMapperDto) {
         this.authUserService = authUserService;
         this.controllerMapperDto = controllerMapperDto;
-        this.jwtProvider = jwtProvider;
     }
 
     @PostMapping("/register")
@@ -61,7 +56,7 @@ public class AuthUserController {
     @PostMapping("/validate")
     public ResponseEntity<String> validate(@RequestBody TokenDTO tokenDTO) {
         try {
-            jwtProvider.validateToken(tokenDTO.getToken());
+            authUserService.validate(tokenDTO.getToken());
             return new ResponseEntity<>("Valid token", HttpStatus.OK);
         } catch (JWTVerificationException jwte) {
             return new ResponseEntity<>("Invalid token, not authorized",HttpStatus.UNAUTHORIZED);

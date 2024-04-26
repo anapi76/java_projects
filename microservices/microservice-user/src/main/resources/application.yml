@@ -4,7 +4,9 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888 
 
-    
+jwt:
+  key: ea31cedc90673442febca67fc82bf7610e3c51b61a2a8e4a85c766c3dd853efe
+  issuer: AUTH0JWT    
 
     
   

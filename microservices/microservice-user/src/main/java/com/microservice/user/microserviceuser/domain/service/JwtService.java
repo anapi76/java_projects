@@ -1,4 +1,4 @@
-package com.microservice.auth.microserviceauth.security;
+package com.microservice.user.microserviceuser.domain.service;
 
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -15,7 +15,7 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 @Component
-public class JwtProvider {
+public class JwtService {
 
     private final int EXPIRATION_TIME = 1800000;
 
@@ -25,11 +25,15 @@ public class JwtProvider {
     @Value("${jwt.issuer}")
     private String issuer;
 
-    public String createToken(Authentication authentication) {
+    public String generateToken(Authentication authentication) {
         Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
         String username = authentication.getPrincipal().toString();
         String authorities = authentication.getAuthorities().stream().map(g -> g.getAuthority().toString())
                 .collect(Collectors.joining(","));
+        return createToken(username, authorities, algorithm);
+    }
+
+    public String createToken(String username, String authorities, Algorithm algorithm) {
         String jwtToken = JWT.create()
                 .withIssuer(this.issuer)
                 .withSubject(username)

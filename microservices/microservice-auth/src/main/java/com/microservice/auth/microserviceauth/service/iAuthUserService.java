@@ -12,4 +12,6 @@ public interface iAuthUserService {
 
     public AuthResponse login(LoginRequest loginRequest);
 
+    public void validate(String token);
+
 }

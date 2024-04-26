@@ -1,4 +1,4 @@
-package com.microservice.auth.microserviceauth.security;
+package com.microservice.product.microserviceproduct.security;
 
 import java.io.IOException;
 
@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.microservice.product.microserviceproduct.domain.service.JwtService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,10 +24,10 @@ import jakarta.servlet.http.HttpServletResponse;
 // Se ejecuta el filtro antes de cada petición para validar el token
 public class JwtTokenValidator extends OncePerRequestFilter {
 
-    private JwtProvider jwtProvider;
+    private JwtService jwtService;
 
-    public JwtTokenValidator(JwtProvider jwtProvider) {
-        this.jwtProvider = jwtProvider;
+    public JwtTokenValidator(JwtService jwtService) {
+        this.jwtService = jwtService;
     }
 
     @Override
@@ -38,15 +39,14 @@ public class JwtTokenValidator extends OncePerRequestFilter {
         if (jwtToken != null) {
             jwtToken = jwtToken.substring(7);
 
-            DecodedJWT decodedJWT=jwtProvider.validateToken(jwtToken);
-            String username=jwtProvider.extractUserName(decodedJWT);
-            String stringAuthorities=jwtProvider.geSpecificClaim(decodedJWT, "authorities").asString();
+            DecodedJWT decodedJWT=jwtService.validateToken(jwtToken);
+            String username=jwtService.extractUserName(decodedJWT);
+            String stringAuthorities=jwtService.geSpecificClaim(decodedJWT, "authorities").asString();
     
             Collection<?extends GrantedAuthority> authorities=AuthorityUtils.commaSeparatedStringToAuthorityList(stringAuthorities);
 
             SecurityContext context= SecurityContextHolder.getContext();
             Authentication authentication= new UsernamePasswordAuthenticationToken(username,null,authorities);
-            System.out.println(authentication);
             context.setAuthentication(authentication);
             
             SecurityContextHolder.setContext(context);
