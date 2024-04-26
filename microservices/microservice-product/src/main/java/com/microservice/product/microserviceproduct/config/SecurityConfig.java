@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(
                         SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
+                    http.requestMatchers(HttpMethod.GET, "/product").authenticated();
                     http.requestMatchers(HttpMethod.GET, "/product/*").authenticated();
                     http.requestMatchers(HttpMethod.POST, "/product/create").authenticated();
                     http.requestMatchers(HttpMethod.PUT, "/product/update/*").authenticated();

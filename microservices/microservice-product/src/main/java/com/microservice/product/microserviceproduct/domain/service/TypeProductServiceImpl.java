@@ -29,39 +29,4 @@ public class TypeProductServiceImpl implements iTypeProductService {
         return typeProductFound;
     }
 
-/*     @Override
-    public TypeProductDTO createTypeProduct(TypeProductDTO typeProductDto) throws TypeProductCantBeNullException {
-        if (typeProductDto == null) {
-            throw new TypeProductCantBeNullException("TypeProduct can't be null");
-        }
-        if (!validateTypeProduct(typeProductDto)) {
-            return null;
-        }
-        TypeProductDTO createdTypeProduct = typeProductRepository.createTypeProduct(typeProductDto);
-
-        return createdTypeProduct;
-    }
-
-    @Override
-    public TypeProductDTO updateTypeProduct(int id, TypeProductDTO typeProductDto) throws TypeProductNotFoundException {
-        TypeProductDTO typeProductFound = typeProductRepository.findTypeProductById(id);
-        typeProductFound.setIdTypeProduct(id);
-        if (typeProductDto.getName() != null) {
-            typeProductFound.setName(typeProductDto.getName());
-        }
-        TypeProductDTO updatedTypeProduct = typeProductRepository.updateTypeProduct(typeProductFound);
-        return updatedTypeProduct;
-    }
-
-    @Override
-    public void deleteTypeProductById(int id) throws TypeProductNotFoundException {
-        TypeProductDTO typeProductFound=findTypeProductById(id);
-        typeProductRepository.deleteTypeProductById(id);
-    }
-
-    public Boolean validateTypeProduct(TypeProductDTO typeProductDto) {
-        return (typeProductDto.getName() != null && !typeProductDto.getName().isEmpty());
-    }
- */
-
 }

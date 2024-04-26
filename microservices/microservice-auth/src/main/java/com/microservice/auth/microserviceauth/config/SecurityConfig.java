@@ -21,14 +21,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity 
 public class SecurityConfig {
 
-
     private PasswordEncoderConfig passwordEncoderConfig;
 
     public SecurityConfig(PasswordEncoderConfig passwordEncoderConfig) {
         this.passwordEncoderConfig=passwordEncoderConfig;
     }
 
-    @Bean
+ @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(csrf -> csrf.disable())

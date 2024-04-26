@@ -6,7 +6,7 @@ spring:
     name: msvc-auth
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:users_db
+    url: jdbc:h2:mem:auth_db
     username: sa
     password: password
   jpa:
