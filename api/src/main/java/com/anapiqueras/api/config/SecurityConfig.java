@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import com.anapiqueras.api.config.filter.JwtTokenValidator;
-import com.anapiqueras.api.domain.service.UserDetailServiceImpl;
+import com.anapiqueras.api.service.UserDetailServiceImpl;
 import com.anapiqueras.api.util.JwtUtils;
 
 @Configuration
@@ -48,10 +49,15 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.GET, "/typeProduct/*").hasAnyRole("ADMIN", "USER");
                     http.requestMatchers(HttpMethod.GET, "/users").hasAnyRole("ADMIN", "USER");
                     http.requestMatchers("/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**").permitAll();
-                    http.anyRequest().denyAll();
+                    http.anyRequest().permitAll();
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/h2-console/**");
     }
 
     @Bean 

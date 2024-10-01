@@ -64,11 +64,11 @@ public class AppTest {
     public void testPrint() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 1);
+        Person person1 = new Person(date1, Gender.MALE);
         LocalDate date2 = LocalDate.now().minusYears(10);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(30);
-        Person person3 = new Person(date3, 0);
+        Person person3 = new Person(date3, Gender.FEMALE);
         Person[] people = { person1, person2, person3 };
         String expected = "Adults: 2\r\nNot adults: 1\r\nMale adults: 1\r\nFemale not adults: 1\r\nPercentage adults: 66.666664 %\r\nPercentage female: 66.666664 %\r\n";
         // Act
@@ -81,7 +81,7 @@ public class AppTest {
     public void checkAgeException() throws Exception {
         // Arrange
         LocalDate date = LocalDate.now().plusYears(5);
-        Person person = new Person(date, 0);
+        Person person = new Person(date, Gender.FEMALE);
         // Act
         String result = Integer.toString(person.getAge());
         // Assert
@@ -103,12 +103,10 @@ public class AppTest {
     @Test
     public void checkRandomGendre() {
         // Arrange
-        int gendreMale = 1;
-        int gendreFemale = 0;
         // Act
-        int result = randomGendre();
+        Gender result = randomGender();
         // Assert
-        assertTrue(result == gendreMale || result == gendreFemale);
+        assertTrue(result == Gender.MALE || result == Gender.FEMALE);
     }
 
     @Test
@@ -116,7 +114,7 @@ public class AppTest {
         // Arrange
         LocalDate date = LocalDate.now().minusYears(1);
         int ageExpected = 1;
-        Person person = new Person(date, 0);
+        Person person = new Person(date, Gender.FEMALE);
         // Act
         int result = person.getAge();
         // Assert
@@ -127,7 +125,7 @@ public class AppTest {
     public void checkIsAdult() {
         // Arrange
         LocalDate date = LocalDate.now().minusYears(18);
-        Person person = new Person(date, 0);
+        Person person = new Person(date, Gender.FEMALE);
         // Act
         boolean result = person.isAdult();
         // Assert
@@ -138,7 +136,7 @@ public class AppTest {
     public void checkIsNotAdult() {
         // Arrange
         LocalDate date = LocalDate.now().minusYears(10);
-        Person person = new Person(date, 0);
+        Person person = new Person(date, Gender.FEMALE);
         // Act
         boolean result = person.isAdult();
         // Assert
@@ -149,11 +147,11 @@ public class AppTest {
     public void checkQuantityAdults() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 0);
+        Person person1 = new Person(date1, Gender.FEMALE);
         LocalDate date2 = LocalDate.now().minusYears(10);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(30);
-        Person person3 = new Person(date3, 0);
+        Person person3 = new Person(date3, Gender.FEMALE);
         Person[] people = { person1, person2, person3 };
         int quantity = 2;
         // Act
@@ -166,11 +164,11 @@ public class AppTest {
     public void checkQuantityNotAdults() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 0);
+        Person person1 = new Person(date1, Gender.FEMALE);
         LocalDate date2 = LocalDate.now().minusYears(10);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(17);
-        Person person3 = new Person(date3, 0);
+        Person person3 = new Person(date3, Gender.FEMALE);
         Person[] people = { person1, person2, person3 };
         int quantity = 2;
         // Act
@@ -183,11 +181,11 @@ public class AppTest {
     public void checkQuantityMaleAdults() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 1);
+        Person person1 = new Person(date1, Gender.MALE);
         LocalDate date2 = LocalDate.now().minusYears(25);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(17);
-        Person person3 = new Person(date3, 1);
+        Person person3 = new Person(date3, Gender.MALE);
         Person[] people = { person1, person2, person3 };
         int quantity = 1;
         // Act
@@ -200,11 +198,11 @@ public class AppTest {
     public void checkQuantityFemaleNotAdults() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 0);
+        Person person1 = new Person(date1, Gender.FEMALE);
         LocalDate date2 = LocalDate.now().minusYears(25);
-        Person person2 = new Person(date2, 1);
+        Person person2 = new Person(date2, Gender.MALE);
         LocalDate date3 = LocalDate.now().minusYears(17);
-        Person person3 = new Person(date3, 0);
+        Person person3 = new Person(date3, Gender.FEMALE);
         Person[] people = { person1, person2, person3 };
         int quantity = 1;
         // Act
@@ -217,11 +215,11 @@ public class AppTest {
     public void checkCalculatePercentageAdults() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 0);
+        Person person1 = new Person(date1, Gender.FEMALE);
         LocalDate date2 = LocalDate.now().minusYears(25);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(17);
-        Person person3 = new Person(date3, 0);
+        Person person3 = new Person(date3, Gender.FEMALE);
         Person[] people = { person1, person2, person3 };
         float quantity = (100 * (float) quantityAdults(people)) / people.length;
         // Act
@@ -234,11 +232,11 @@ public class AppTest {
     public void checkCalculatePercentageFemale() {
         // Arrange
         LocalDate date1 = LocalDate.now().minusYears(18);
-        Person person1 = new Person(date1, 1);
+        Person person1 = new Person(date1, Gender.MALE);
         LocalDate date2 = LocalDate.now().minusYears(25);
-        Person person2 = new Person(date2, 0);
+        Person person2 = new Person(date2, Gender.FEMALE);
         LocalDate date3 = LocalDate.now().minusYears(17);
-        Person person3 = new Person(date3, 1);
+        Person person3 = new Person(date3, Gender.MALE);
         Person[] people = { person1, person2, person3 };
         float quantity = (100 * 1.0f) / people.length;
         // Act

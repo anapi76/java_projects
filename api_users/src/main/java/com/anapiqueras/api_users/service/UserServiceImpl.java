@@ -1,12 +1,12 @@
-package com.anapiqueras.api_users.domain.service;
+package com.anapiqueras.api_users.service;
 
 import java.util.List;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import com.anapiqueras.api_users.domain.repository.iRoleRepository;
-import com.anapiqueras.api_users.domain.repository.iUserRepository;
+import com.anapiqueras.api_users.repository.iRoleRepository;
+import com.anapiqueras.api_users.repository.iUserRepository;
 import com.anapiqueras.api_users.dto.RoleDTO;
 import com.anapiqueras.api_users.dto.UserDTO;
 import com.anapiqueras.api_users.exceptions.RoleNotFoundException;

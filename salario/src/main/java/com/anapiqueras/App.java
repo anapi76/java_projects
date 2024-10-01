@@ -12,11 +12,11 @@ Utilice las instrucciones LEER HORASTRABAJADAS y LEER TARIFA al inicio del progr
 los valores en las variables HORASTRABAJADAS y TARIFA */
 
 public class App {
-    private static final float INCREASE_HOURLY = 0.5f;
+    private static final float INCREASE_HOURLY = 1.5f;
     private final static float HOURLY = 10.0f;
     private static final float MIN_HOURS_WEEK = 40.0f;
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static float getIncreaseHourly() {
         return INCREASE_HOURLY;
@@ -34,52 +34,49 @@ public class App {
         try {
             readHours();
         } catch (InputMismatchException e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
     }
 
     public static void readHours() throws Exception {
         System.out.println("Write worked hours: ");
         try {
-            float hours = scanner.nextFloat();
-            if (isPositive(hours)) {
-                printSalary(hours);
-            } else {
+            float hours = SCANNER.nextFloat();
+            if (!isPositive(hours)) {
                 System.out.println("Is not a positive number");
+                return;
             }
+            printSalary(hours);
         } catch (InputMismatchException e) {
-            scanner.close();
+            SCANNER.close();
             throw new InputMismatchException("Is not a decimal number");
         }
+    }
+
+    public static void printSalary(float hours) {
+        System.out.println("Hours: " + hours);
+        System.out.println("Hourly: " + HOURLY);
+        System.out.println("Overtime: " + calculateOverTimeHours(hours));
+        System.out.println("Salary: " + calculateSalary(hours));
     }
 
     public static boolean isPositive(float hour) {
         return (hour > 0);
     }
 
-    public static float calculateOverTime(float hours) {
-        float overtime = hours - MIN_HOURS_WEEK;
-        if (hours < 40) {
-            overtime = 0;
-        }
-        return overtime;
+    public static float calculateOverTimeHours(float hours) {
+        return (hours < MIN_HOURS_WEEK) ? 0 : hours - MIN_HOURS_WEEK;
     }
 
     public static float calculateOvertimeSalary(float hours) {
-        return calculateOverTime(hours) * (1 + getIncreaseHourly());
+        float overtime = calculateOverTimeHours(hours);
+        return (HOURLY * INCREASE_HOURLY) * overtime;
     }
 
     public static float calculateSalary(float hours) {
-        float overtime = calculateOverTime(hours);
+        float overtime = calculateOverTimeHours(hours);
         float minHours = hours - overtime;
-        return (minHours * HOURLY) + ((overtime) * (1 + INCREASE_HOURLY));
+        float salary = HOURLY * minHours;
+        return salary + calculateOvertimeSalary(hours);
     }
-
-    public static void printSalary(float hours) {
-        System.out.println("Hours: " + hours);
-        System.out.println("Hourly: " + HOURLY);
-        System.out.println("Overtime: " + calculateOverTime(hours));
-        System.out.println("Salary: " + calculateSalary(hours));
-    }
-
 }

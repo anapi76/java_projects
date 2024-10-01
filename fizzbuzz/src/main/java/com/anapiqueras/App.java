@@ -6,49 +6,70 @@ package com.anapiqueras;
 - For the multiples of five print Buzz instead of the number
 - For numbers which are multiples of both three and five print FizzBuzz instead of the number */
 
-public class App {
-    private final static int MIN=1;
-    private final static int MAX=100;
-    private final static int THREE = 3;
-    private final static int FIVE = 5;
-    private final static String FIZZ="Fizz";
-    private final static String BUZZ="Buzz";
-    private final static String FIZZBUZZ="FizzBuzz";
+import java.util.ArrayList;
+import java.util.List;
 
-    public static int getMinValue(){return MIN;}
-    public static int getMaxValue(){return MAX;}
-    public static int getThree(){return THREE;}
-    public static int getFive(){return FIVE;}
-    public static String getFizz(){return FIZZ;}
-    public static String getBuzz(){return BUZZ;}
-    public static String getFizzBuzz(){return FIZZBUZZ;}
+public class App {
+    private final static int MIN = 1;
+    private final static int MAX = 100;
+    private final static int OPERATIONBY3 = 3;
+    private final static int OPERATIONBY5 = 5;
+    private final static String FIZZ = "Fizz";
+    private final static String BUZZ = "Buzz";
+
+    public static int getMinValue() {
+        return MIN;
+    }
+
+    public static int getMaxValue() {
+        return MAX;
+    }
+
+    public static int getThree() {
+        return OPERATIONBY3;
+    }
+
+    public static int getFive() {
+        return OPERATIONBY5;
+    }
+
+    public static String getFizz() {
+        return FIZZ;
+    }
+
+    public static String getBuzz() {
+        return BUZZ;
+    }
 
 
     public static void main(String[] args) {
-            calculateMultiples();
+        System.out.println(fizzBuzz());
     }
 
-    public static void calculateMultiples(){
-        String num;
+    public static String fizzBuzz() {
+        List<String> result = new ArrayList();
         for (int i = MIN; i <= MAX; i++) {
-            num = fizzBuzz(i);
-            System.out.println(num);
+            result.add(checkNumber(i));
         }
+        return String.join(" ", result);
     }
 
-    public static String fizzBuzz(int num) {
-        boolean isMultipleFive = num % FIVE == 0;
-        boolean isMultipleThree = num % THREE == 0;
-        boolean isMultiple = isMultipleThree && isMultipleFive;
-      
-        String result = Integer.toString(num);
-        if (isMultiple) {
-            result = FIZZBUZZ;
-        } else if (isMultipleThree) {
-            result = FIZZ;
-        } else if (isMultipleFive) {
-            result = BUZZ;
+    public static String checkNumber(int num) {
+        StringBuilder result = new StringBuilder();
+        if (isMultipleOf(num, OPERATIONBY3) && isMultipleOf(num, OPERATIONBY5)) {
+            result.append("FizzBuzz");
+        } else if (isMultipleOf(num, OPERATIONBY3)) {
+            result.append(FIZZ);
+        } else if (isMultipleOf(num, OPERATIONBY5)) {
+            result.append(BUZZ);
+        }// If neither "Fizz" nor "Buzz" were added, append the number
+        if (result.length() == 0) {
+            result.append(num); // Corrected: append instead of append
         }
-        return result;
+        return result.toString();
+    }
+
+    private static boolean isMultipleOf(int number, int divisor) {
+        return number % divisor == 0;
     }
 }

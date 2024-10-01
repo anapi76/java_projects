@@ -3,8 +3,8 @@ package com.anapiqueras.api.mapper;
 import org.springframework.stereotype.Component;
 
 import com.anapiqueras.api.dto.ProductDTO;
-import com.anapiqueras.api.persistence.model.ProductEntity;
-import com.anapiqueras.api.persistence.model.TypeProductEntity;
+import com.anapiqueras.api.entity.ProductEntity;
+import com.anapiqueras.api.entity.TypeProductEntity;
 
 @Component
 public class DTOMapperProduct {

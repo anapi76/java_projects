@@ -1,4 +1,4 @@
-package com.anapiqueras.api.domain.service;
+package com.anapiqueras.api.service;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,10 +12,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.anapiqueras.api.controller.dto.LoginRequest;
-import com.anapiqueras.api.controller.dto.AuthResponse;
-import com.anapiqueras.api.domain.repository.iUserRepository;
-import com.anapiqueras.api.persistence.model.UserEntity;
+import com.anapiqueras.api.dto.LoginRequest;
+import com.anapiqueras.api.dto.AuthResponse;
+import com.anapiqueras.api.repository.iUserRepository;
+import com.anapiqueras.api.entity.UserEntity;
 import com.anapiqueras.api.util.JwtUtils;
 
 import java.util.*;

@@ -1,9 +1,9 @@
-package com.anapiqueras.api.domain.repository;
+package com.anapiqueras.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.anapiqueras.api.persistence.model.UserEntity;
+import com.anapiqueras.api.entity.UserEntity;
 
 import java.util.Optional;
 

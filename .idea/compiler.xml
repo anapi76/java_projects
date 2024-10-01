@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/palindromo/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-gateway" />
+        <module name="api_users" />
+        <module name="solid" />
+        <module name="microservice-auth" />
+        <module name="salario" />
+        <module name="microservice-product" />
+        <module name="palindromo" />
+        <module name="microservice-user" />
+        <module name="fizzbuzz" />
+        <module name="personas" />
+        <module name="numeros" />
+        <module name="morse" />
+        <module name="microservice-config" />
+        <module name="cleancode" />
+        <module name="api" />
+        <module name="microservice-eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="17" />
+      <module name="kata" target="17" />
+      <module name="kata1" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="-parameters" />
+      <module name="api_users" options="-parameters" />
+      <module name="microservice-auth" options="-parameters" />
+      <module name="microservice-config" options="-parameters" />
+      <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-product" options="-parameters" />
+      <module name="microservice-user" options="-parameters" />
+    </option>
+  </component>
+</project>

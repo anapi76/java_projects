@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.anapiqueras.api.dto.ProductDTO;
 import com.anapiqueras.api.dto.TypeProductDTO;
 import com.anapiqueras.api.mapper.DTOMapperProduct;
-import com.anapiqueras.api.persistence.model.ProductEntity;
+import com.anapiqueras.api.entity.ProductEntity;
 
 public class DTOMapperProductTest {
 

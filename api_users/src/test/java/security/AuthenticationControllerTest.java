@@ -18,7 +18,7 @@ import org.springframework.http.ResponseEntity;
 import com.anapiqueras.api_users.controller.AuthenticationController;
 import com.anapiqueras.api_users.controller.dto.AuthResponse;
 import com.anapiqueras.api_users.controller.dto.LoginRequest;
-import com.anapiqueras.api_users.domain.service.UserDetailServiceImpl;
+import com.anapiqueras.api_users.service.UserDetailServiceImpl;
 
 
 public class AuthenticationControllerTest {

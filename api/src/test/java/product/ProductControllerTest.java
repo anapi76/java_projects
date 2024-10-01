@@ -18,8 +18,8 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import com.anapiqueras.api.controller.ProductController;
-import com.anapiqueras.api.controller.dto.ProductDTOController;
-import com.anapiqueras.api.domain.service.iProductService;
+import com.anapiqueras.api.dto.ProductDTOController;
+import com.anapiqueras.api.service.iProductService;
 import com.anapiqueras.api.dto.ProductDTO;
 import com.anapiqueras.api.dto.TypeProductDTO;
 import com.anapiqueras.api.exceptions.ProductCantBeNullException;

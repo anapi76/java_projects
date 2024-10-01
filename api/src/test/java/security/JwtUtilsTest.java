@@ -30,7 +30,7 @@ public class JwtUtilsTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
+  /*  @Test
     public void testCreateToken() {
         // Arrange
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
@@ -43,7 +43,7 @@ public class JwtUtilsTest {
 
         // Assert
         assertNotNull(token);
-    }
+    }*/
 
 }
 

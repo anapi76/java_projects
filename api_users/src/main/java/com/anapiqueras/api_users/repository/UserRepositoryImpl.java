@@ -1,15 +1,14 @@
-package com.anapiqueras.api_users.persistence.impl;
+package com.anapiqueras.api_users.repository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
-import com.anapiqueras.api_users.domain.repository.iUserRepository;
 import com.anapiqueras.api_users.dto.UserDTO;
 import com.anapiqueras.api_users.exceptions.UserNotFoundException;
 import com.anapiqueras.api_users.mapper.DTOMapperUser;
 import com.anapiqueras.api_users.mapper.UserMapperDTO;
-import com.anapiqueras.api_users.persistence.DAO.iUserDAO;
-import com.anapiqueras.api_users.persistence.model.UserEntity;
+import com.anapiqueras.api_users.repository.DAO.iUserDAO;
+import com.anapiqueras.api_users.entity.UserEntity;
 
 @Repository
 public class UserRepositoryImpl implements iUserRepository {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api_users/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cleancode/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cleancode/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fizzbuzz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fizzbuzz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kata/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kata1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kata1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kataPotter-main/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kataPotter-main/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/microservice-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/morse/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/morse/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/numeros/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/numeros/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/palindromo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/palindromo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/personas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/personas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/salario/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/salario/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/solid/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/solid/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

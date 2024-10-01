@@ -1,4 +1,4 @@
-package com.anapiqueras.api.domain.repository;
+package com.anapiqueras.api.repository;
 
 import java.util.List;
 

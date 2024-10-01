@@ -4,13 +4,12 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Person {
-    private final int ADULT_AGE=18;
     private LocalDate age;
-    private int gendre;//0--Female 1 -- Male
+    private Gender gender;
 
-    public Person(LocalDate age, int gendre) {
+    public Person(LocalDate age, Gender gender) {
         setAge(age);
-        this.gendre = gendre;
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -30,17 +29,17 @@ public class Person {
         }
     }
 
-    public int getGendre() {
-        return gendre;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setGendre(int gendre) {
-        this.gendre = gendre;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public boolean isAdult() {
-        boolean adult = getAge() >= ADULT_AGE;
-        return adult;
+        int ADULT_AGE = 18;
+        return getAge() >= ADULT_AGE;
     }
 
 }

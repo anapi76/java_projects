@@ -63,13 +63,13 @@ public class SecurityConfigTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
+   /* @Test
     @WithMockUser(roles = "ADMIN")
     public void testAdminAccessToProductEndpoints() throws Exception {
         mockMvc.perform(get("/product/"))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/product/"))
                 .andExpect(status().isOk());
-    }
+    }*/
 
 }

@@ -15,8 +15,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.anapiqueras.api.domain.repository.iTypeProductRepository;
-import com.anapiqueras.api.domain.service.TypeProductServiceImpl;
+import com.anapiqueras.api.repository.iTypeProductRepository;
+import com.anapiqueras.api.service.TypeProductServiceImpl;
 import com.anapiqueras.api.dto.*;
 //import com.anapiqueras.api.exceptions.TypeProductCantBeNullException;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;

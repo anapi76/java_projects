@@ -3,8 +3,8 @@ package com.anapiqueras.api_users.mapper;
 import org.springframework.stereotype.Component;
 
 import com.anapiqueras.api_users.dto.UserDTO;
-import com.anapiqueras.api_users.persistence.model.RoleEntity;
-import com.anapiqueras.api_users.persistence.model.UserEntity;
+import com.anapiqueras.api_users.entity.RoleEntity;
+import com.anapiqueras.api_users.entity.UserEntity;
 
 @Component
 public class DTOMapperUser {

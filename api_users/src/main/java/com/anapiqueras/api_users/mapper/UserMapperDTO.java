@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.anapiqueras.api_users.dto.RoleDTO;
 import com.anapiqueras.api_users.dto.UserDTO;
-import com.anapiqueras.api_users.persistence.model.UserEntity;
+import com.anapiqueras.api_users.entity.UserEntity;
 
 @Component
 public class UserMapperDTO {

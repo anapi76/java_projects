@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/api/pom.xml" />
+        <option value="$PROJECT_DIR$/kata/pom.xml" />
+        <option value="$PROJECT_DIR$/kata1/pom.xml" />
+        <option value="$PROJECT_DIR$/morse/pom.xml" />
+        <option value="$PROJECT_DIR$/animal/pom.xml" />
+        <option value="$PROJECT_DIR$/people/pom.xml" />
+        <option value="$PROJECT_DIR$/salary/pom.xml" />
+        <option value="$PROJECT_DIR$/numeros/pom.xml" />
+        <option value="$PROJECT_DIR$/fizzbuzz/pom.xml" />
+        <option value="$PROJECT_DIR$/api_users/pom.xml" />
+        <option value="$PROJECT_DIR$/cleancode/pom.xml" />
+        <option value="$PROJECT_DIR$/microservices/pom.xml" />
+        <option value="$PROJECT_DIR$/kataPotter-main/pom.xml" />
+        <option value="$PROJECT_DIR$/palindromo/pom.xml" />
+        <option value="$PROJECT_DIR$/personas/pom.xml" />
+        <option value="$PROJECT_DIR$/salario/pom.xml" />
+        <option value="$PROJECT_DIR$/solid/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -9,25 +9,22 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 import java.util.List;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 
 import com.anapiqueras.api_users.dto.RoleDTO;
 import com.anapiqueras.api_users.dto.UserDTO;
 import com.anapiqueras.api_users.exceptions.UserNotFoundException;
 import com.anapiqueras.api_users.mapper.DTOMapperUser;
 import com.anapiqueras.api_users.mapper.UserMapperDTO;
-import com.anapiqueras.api_users.persistence.DAO.iUserDAO;
-import com.anapiqueras.api_users.persistence.impl.UserRepositoryImpl;
-import com.anapiqueras.api_users.persistence.model.RoleEntity;
-import com.anapiqueras.api_users.persistence.model.UserEntity;
+import com.anapiqueras.api_users.repository.DAO.iUserDAO;
+import com.anapiqueras.api_users.repository.UserRepositoryImpl;
+import com.anapiqueras.api_users.entity.RoleEntity;
+import com.anapiqueras.api_users.entity.UserEntity;
 
 public class UserRepostitoryTest {
 

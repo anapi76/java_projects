@@ -1,4 +1,4 @@
-package com.anapiqueras.api.domain.service;
+package com.anapiqueras.api.service;
 
 import java.util.List;
 

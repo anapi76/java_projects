@@ -1,4 +1,4 @@
-package com.anapiqueras.api_users.domain.repository;
+package com.anapiqueras.api_users.repository;
 
 import org.springframework.stereotype.Repository;
 

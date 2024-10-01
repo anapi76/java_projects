@@ -19,8 +19,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.anapiqueras.api_users.controller.UserController;
 import com.anapiqueras.api_users.controller.dto.UserDTOController;
-import com.anapiqueras.api_users.domain.repository.iUserRepository;
-import com.anapiqueras.api_users.domain.service.iUserService;
+import com.anapiqueras.api_users.repository.iUserRepository;
+import com.anapiqueras.api_users.service.iUserService;
 import com.anapiqueras.api_users.dto.RoleDTO;
 import com.anapiqueras.api_users.dto.UserDTO;
 import com.anapiqueras.api_users.exceptions.RoleNotFoundException;

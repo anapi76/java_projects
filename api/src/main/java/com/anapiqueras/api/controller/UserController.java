@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anapiqueras.api.domain.repository.iUserRepository;
-import com.anapiqueras.api.persistence.model.UserEntity;
+import com.anapiqueras.api.repository.iUserRepository;
+import com.anapiqueras.api.entity.UserEntity;
 
 @RestController
 @RequestMapping("/users")

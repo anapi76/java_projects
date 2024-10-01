@@ -20,10 +20,10 @@ import com.anapiqueras.api.dto.TypeProductDTO;
 import com.anapiqueras.api.exceptions.ProductNotFoundException;
 import com.anapiqueras.api.mapper.DTOMapperProduct;
 import com.anapiqueras.api.mapper.ProductMapperDTO;
-import com.anapiqueras.api.persistence.DAO.iProductDAO;
-import com.anapiqueras.api.persistence.impl.ProductRepositoryImpl;
-import com.anapiqueras.api.persistence.model.ProductEntity;
-import com.anapiqueras.api.persistence.model.TypeProductEntity;
+import com.anapiqueras.api.repository.DAO.iProductDAO;
+import com.anapiqueras.api.repository.ProductRepositoryImpl;
+import com.anapiqueras.api.entity.ProductEntity;
+import com.anapiqueras.api.entity.TypeProductEntity;
 
 public class ProductRepositoryTest {
 

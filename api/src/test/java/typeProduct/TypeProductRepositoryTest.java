@@ -18,9 +18,9 @@ import com.anapiqueras.api.dto.TypeProductDTO;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;
 import com.anapiqueras.api.mapper.DTOMapperProduct;
 import com.anapiqueras.api.mapper.TypeProductMapperDTO;
-import com.anapiqueras.api.persistence.DAO.iTypeProductDAO;
-import com.anapiqueras.api.persistence.impl.TypeProductRepositoryImpl;
-import com.anapiqueras.api.persistence.model.TypeProductEntity;
+import com.anapiqueras.api.repository.DAO.iTypeProductDAO;
+import com.anapiqueras.api.repository.TypeProductRepositoryImpl;
+import com.anapiqueras.api.entity.TypeProductEntity;
 
 public class TypeProductRepositoryTest {
 

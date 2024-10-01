@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anapiqueras.api_users.controller.dto.UserDTOController;
-import com.anapiqueras.api_users.domain.service.iUserService;
+import com.anapiqueras.api_users.service.iUserService;
 import com.anapiqueras.api_users.dto.UserDTO;
 import com.anapiqueras.api_users.exceptions.RoleNotFoundException;
 import com.anapiqueras.api_users.exceptions.UserCantBeNullException;

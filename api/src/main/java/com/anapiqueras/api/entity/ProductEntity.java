@@ -1,4 +1,4 @@
-package com.anapiqueras.api.persistence.model;
+package com.anapiqueras.api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

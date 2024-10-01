@@ -55,31 +55,30 @@ public class Morse {
     }
 
     public HashMap<String, String> fileToArray() {
-        String pathWords = "C:/Users/anpiqueras/Desktop/formacion/ejercicios/morse/words4.txt";
+        String pathWords = "C:\\Users\\abpj7\\Documents\\FCT_sopra\\ejercicios\\morse\\words4.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(pathWords))) {
             String line;
 
             while ((line = br.readLine()) != null) {
                 line = line.toUpperCase().trim();
-                String morseWord = "";
+                StringBuilder morseWord = new StringBuilder();
 
                 for (char character : line.toCharArray()) {
-                    morseWord += convertCharToMorse(character);
+                    morseWord.append(convertCharToMorse(character));
                 }
-                words.put(line, morseWord);
+                words.put(line, morseWord.toString());
             }
             return words;
             // System.out.println(words.get("ONLY"));
         } catch (IOException e) {
-            System.err.println("Erro to read the file: " + e.getMessage());
+            System.err.println("Error to read the file: " + e.getMessage());
         }
         return words;
     }
 
     public char convertMorseToChar(String morseLetter) {
-        char letter = morse.getOrDefault(morseLetter, '\0');
-        return letter;
+        return morse.getOrDefault(morseLetter, '\0');
     }
 
     public String convertCharToMorse(char letter) {
@@ -94,11 +93,11 @@ public class Morse {
 
     public String convertWordToMorse(String word) {
         word = word.toUpperCase();
-        String morseWord = "";
+        StringBuilder morseWord = new StringBuilder();
         for (char character : word.toCharArray()) {
-            morseWord += convertCharToMorse(character);
+            morseWord.append(convertCharToMorse(character));
         }
-        return morseWord;
+        return morseWord.toString();
     }
 
     public void decodeMorse(int beginIndex,ArrayList<String> wordsFound) {

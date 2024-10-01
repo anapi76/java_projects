@@ -1,4 +1,4 @@
-package com.anapiqueras.api.controller.dto;
+package com.anapiqueras.api.dto;
 
 public record LoginRequest(String username, String password) {
 

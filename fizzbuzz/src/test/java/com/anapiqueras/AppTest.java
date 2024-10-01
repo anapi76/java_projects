@@ -1,16 +1,8 @@
 package com.anapiqueras;
 
+import static com.anapiqueras.App.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import static com.anapiqueras.App.fizzBuzz;
-import static com.anapiqueras.App.getMinValue;
-import static com.anapiqueras.App.getMaxValue;
-import static com.anapiqueras.App.getThree;
-import static com.anapiqueras.App.getFive;
-import static com.anapiqueras.App.getFizz;
-import static com.anapiqueras.App.getBuzz;
-import static com.anapiqueras.App.getFizzBuzz;
 
 import org.junit.Test;
 
@@ -28,22 +20,22 @@ public class AppTest {
 
     @Test
     public void testIsNotMultiple() {
-        assertEquals("1", fizzBuzz(1));
+        assertEquals("1", checkNumber(1));
     }
 
     @Test
     public void testMultipleThreeThenFizz() {
-        assertEquals("Fizz", fizzBuzz(99));
+        assertEquals("Fizz", checkNumber(99));
     }
 
     @Test
     public void testMultipleFiveThenBuzz() {
-        assertEquals("Buzz", fizzBuzz(100));
+        assertEquals("Buzz", checkNumber(100));
     }
 
     @Test
     public void testMultipleFiveThreeThenFizzBuzz() {
-        assertEquals("FizzBuzz", fizzBuzz(90));
+        assertEquals("FizzBuzz", checkNumber(90));
     }
 
     @Test
@@ -76,10 +68,6 @@ public class AppTest {
         assertEquals("Buzz", getBuzz());
     }
 
-    @Test
-    public void checkFizzBuzzValue() {
-        assertEquals("FizzBuzz", getFizzBuzz());
-    }
 
 
 

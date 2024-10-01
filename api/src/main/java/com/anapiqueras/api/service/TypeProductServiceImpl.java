@@ -1,10 +1,10 @@
-package com.anapiqueras.api.domain.service;
+package com.anapiqueras.api.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.anapiqueras.api.domain.repository.iTypeProductRepository;
+import com.anapiqueras.api.repository.iTypeProductRepository;
 import com.anapiqueras.api.dto.TypeProductDTO;
 //import com.anapiqueras.api.exceptions.TypeProductCantBeNullException;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;

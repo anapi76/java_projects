@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.anapiqueras.api.persistence.model.ProductEntity;
-import com.anapiqueras.api.persistence.model.TypeProductEntity;
+import com.anapiqueras.api.entity.ProductEntity;
+import com.anapiqueras.api.entity.TypeProductEntity;
 
 public class ProductDTOTest {
     TypeProductEntity typeProduct= new TypeProductEntity("FOOD");

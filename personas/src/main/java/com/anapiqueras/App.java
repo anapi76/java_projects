@@ -17,8 +17,8 @@ SEXO y EDAD. */
 
 public class App {
     private static Person[] people = new Person[50];
-    private static LocalDate MIN_DATE = LocalDate.now().minusYears(100);
-    private static LocalDate MAX_DATE = LocalDate.now();
+    private static final LocalDate MIN_DATE = LocalDate.now().minusYears(100);
+    private static final LocalDate MAX_DATE = LocalDate.now();
 
     public static Person[] getPeople() {
         return people;
@@ -36,66 +36,15 @@ public class App {
         try {
             readPerson();
         } catch (IllegalArgumentException e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
     }
 
     public static void readPerson() {
         for (int i = 0; i < people.length; i++) {
-            people[i] = new Person(randomBirthdate(), randomGendre());
+            people[i] = new Person(randomBirthdate(), randomGender());
         }
         printPeople(people);
-
-        /*
-         * IntStream.range(0, people.length)
-         * .forEach(i -> {
-         * Person person = new Person(randomBirthdate(), randomGendre());
-         * people[i] = person;
-         * });
-         */
-    }
-
-    public static LocalDate randomBirthdate() {
-        Random random = new Random();
-        long minDay = MIN_DATE.toEpochDay();
-        long maxDay = MAX_DATE.toEpochDay();
-        long randomDay = minDay + random.nextInt((int) (maxDay - minDay));
-
-        LocalDate randomBirthDate = LocalDate.ofEpochDay(randomDay);
-        return randomBirthDate;
-    }
-
-    public static int randomGendre() {
-        Random random = new Random();
-        int randomGendre = random.nextInt(2);
-        return randomGendre;
-    }
-
-    public static int quantityAdults(Person[] people) {
-        return (int) Arrays.stream(people).filter(p -> p.isAdult()).count();
-    }
-
-    public static int quantityNotAdults(Person[] people) {
-        return people.length - quantityAdults(people);
-    }
-
-    public static int quantityMaleAdults(Person[] people) {
-        return (int) Arrays.stream(people).filter(p -> p.isAdult() && p.getGendre() == 1).count();
-
-    }
-
-    public static int quantityFemaleNotAdults(Person[] people) {
-        return (int) Arrays.stream(people).filter(p -> !p.isAdult() && p.getGendre() == 0).count();
-    }
-
-    public static float calculatePercentageAdults(Person[] people) {
-        return 100 * (float) quantityAdults(people) / people.length;
-    }
-
-    public static float calculatePercentageFemale(Person[] people) {
-        float quantityFemales = (int) Arrays.stream(people).filter(p -> p.getGendre() == 0).count();
-        float percentage = 100 * quantityFemales / people.length;
-        return percentage;
     }
 
     public static void printPeople(Person[] people) {
@@ -107,4 +56,44 @@ public class App {
         System.out.println("Percentage female: " + calculatePercentageFemale(people) + " %");
     }
 
+    public static LocalDate randomBirthdate() {
+        Random random = new Random();
+        long minDay = MIN_DATE.toEpochDay();
+        long maxDay = MAX_DATE.toEpochDay();
+        long randomDay = minDay + random.nextInt((int) (maxDay - minDay));
+        return LocalDate.ofEpochDay(randomDay);
+    }
+
+    public static Gender randomGender() {
+        Gender[] genders = Gender.values();
+        Random random = new Random();
+        int randomIndex = random.nextInt(genders.length);
+        return genders[randomIndex];
+    }
+
+    public static int quantityAdults(Person[] people) {
+        return (int) Arrays.stream(people).filter(Person::isAdult).count();
+    }
+
+    public static int quantityNotAdults(Person[] people) {
+        return people.length - quantityAdults(people);
+    }
+
+    public static int quantityMaleAdults(Person[] people) {
+        return (int) Arrays.stream(people).filter(p -> p.isAdult() && p.getGender() == Gender.MALE).count();
+
+    }
+
+    public static int quantityFemaleNotAdults(Person[] people) {
+        return (int) Arrays.stream(people).filter(p -> !p.isAdult() && p.getGender() == Gender.FEMALE).count();
+    }
+
+    public static float calculatePercentageAdults(Person[] people) {
+        return 100 * (float) quantityAdults(people) / people.length;
+    }
+
+    public static float calculatePercentageFemale(Person[] people) {
+        float femalesCount = (int) Arrays.stream(people).filter(p -> p.getGender() == Gender.FEMALE).count();
+        return 100 * femalesCount / people.length;
+    }
 }

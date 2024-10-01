@@ -18,7 +18,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import com.anapiqueras.api.controller.TypeProductController;
-import com.anapiqueras.api.domain.service.iTypeProductService;
+import com.anapiqueras.api.service.iTypeProductService;
 import com.anapiqueras.api.dto.TypeProductDTO;
 //import com.anapiqueras.api.exceptions.TypeProductCantBeNullException;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;

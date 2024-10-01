@@ -15,11 +15,13 @@ public class Operation {
     }
 
     public float division(float dividend, float divisor) {
-        int invalidDivisor = 0;
-        if (divisor == invalidDivisor) {
-            System.out.println("Error: Cannot divide by zero.");
+        if (checkDivision(divisor)) {
             return dividend;
         }
         return dividend / divisor;
+    }
+
+    private boolean checkDivision(float divisor) {
+        return divisor == 0;
     }
 }

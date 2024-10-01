@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import com.anapiqueras.api.domain.repository.iUserRepository;
-import com.anapiqueras.api.persistence.model.RoleEntity;
-import com.anapiqueras.api.persistence.model.UserEntity;
+import com.anapiqueras.api.repository.iUserRepository;
+import com.anapiqueras.api.entity.RoleEntity;
+import com.anapiqueras.api.entity.UserEntity;
 
 @ExtendWith(MockitoExtension.class)
 public class UserRepostitoryTest {

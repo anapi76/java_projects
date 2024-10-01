@@ -3,7 +3,7 @@ package com.anapiqueras.api_users.mapper;
 import org.springframework.stereotype.Component;
 
 import com.anapiqueras.api_users.dto.RoleDTO;
-import com.anapiqueras.api_users.persistence.model.RoleEntity;
+import com.anapiqueras.api_users.entity.RoleEntity;
 
 @Component
 public class DTOMapperRole {

@@ -1,17 +1,16 @@
-package com.anapiqueras.api.persistence.impl;
+package com.anapiqueras.api.repository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
-import com.anapiqueras.api.domain.repository.iTypeProductRepository;
 import com.anapiqueras.api.dto.TypeProductDTO;
 import com.anapiqueras.api.exceptions.TypeProductNotFoundException;
 import com.anapiqueras.api.mapper.DTOMapperTypeProduct;
 import com.anapiqueras.api.mapper.TypeProductMapperDTO;
-import com.anapiqueras.api.persistence.DAO.iTypeProductDAO;
-import com.anapiqueras.api.persistence.model.TypeProductEntity;
+import com.anapiqueras.api.repository.DAO.iTypeProductDAO;
+import com.anapiqueras.api.entity.TypeProductEntity;
 
 @Repository
 public class TypeProductRepositoryImpl implements iTypeProductRepository {

@@ -1,4 +1,4 @@
-package com.anapiqueras.api_users.persistence.model;
+package com.anapiqueras.api_users.entity;
 
 //import java.util.*;
 

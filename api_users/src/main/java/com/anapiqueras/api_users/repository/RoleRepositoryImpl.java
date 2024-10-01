@@ -1,13 +1,12 @@
-package com.anapiqueras.api_users.persistence.impl;
+package com.anapiqueras.api_users.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.anapiqueras.api_users.domain.repository.iRoleRepository;
 import com.anapiqueras.api_users.dto.RoleDTO;
 import com.anapiqueras.api_users.exceptions.RoleNotFoundException;
 import com.anapiqueras.api_users.mapper.RoleMapperDTO;
-import com.anapiqueras.api_users.persistence.DAO.iRoleDAO;
-import com.anapiqueras.api_users.persistence.model.RoleEntity;
+import com.anapiqueras.api_users.repository.DAO.iRoleDAO;
+import com.anapiqueras.api_users.entity.RoleEntity;
 
 @Repository
 public class RoleRepositoryImpl implements iRoleRepository {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.anapiqueras.api.controller.dto.ProductDTOController;
-import com.anapiqueras.api.domain.service.iProductService;
+import com.anapiqueras.api.dto.ProductDTOController;
+import com.anapiqueras.api.service.iProductService;
 import com.anapiqueras.api.dto.ProductDTO;
 import com.anapiqueras.api.exceptions.ProductCantBeNullException;
 import com.anapiqueras.api.exceptions.ProductNotFoundException;

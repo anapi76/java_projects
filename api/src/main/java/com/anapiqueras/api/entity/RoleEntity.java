@@ -1,4 +1,4 @@
-package com.anapiqueras.api.persistence.model;
+package com.anapiqueras.api.entity;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class RoleEntity {
     private String name;
 
    @OneToMany(mappedBy = "role")
-    private List<UserEntity>users; 
+    private List<UserEntity>users;
 
     public RoleEntity() {
     }

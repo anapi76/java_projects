@@ -2,7 +2,7 @@ package com.anapiqueras.api.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.anapiqueras.api.controller.dto.ProductDTOController;
+import com.anapiqueras.api.dto.ProductDTOController;
 import com.anapiqueras.api.dto.ProductDTO;
 import com.anapiqueras.api.dto.TypeProductDTO;
 

@@ -1,9 +1,14 @@
-package com.anapiqueras;
+package com.anapiqueras;;
 
 public class Calculator {
 
-    public float calculator(float number) {
-        Operation operation = new Operation();
+    private final Operation operation;
+
+    public Calculator() {
+        this.operation = new Operation();
+    }
+
+    public float calculate(float number) {
         float result = number;
         result = operation.addition(result, 5);
         result = operation.multiplication(result, 3);
