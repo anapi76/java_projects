@@ -18,16 +18,16 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity 
+@EnableMethodSecurity
 public class SecurityConfig {
 
     private PasswordEncoderConfig passwordEncoderConfig;
 
     public SecurityConfig(PasswordEncoderConfig passwordEncoderConfig) {
-        this.passwordEncoderConfig=passwordEncoderConfig;
+        this.passwordEncoderConfig = passwordEncoderConfig;
     }
 
- @Bean
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(csrf -> csrf.disable())
@@ -36,13 +36,15 @@ public class SecurityConfig {
                         SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
                     http.requestMatchers(HttpMethod.POST, "/auth/**").permitAll();
+                    http.requestMatchers("/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**").permitAll();
+                    http.anyRequest().denyAll();
                 })
-                
+
                 .build();
     }
 
-    @Bean 
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)throws Exception{
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
@@ -53,8 +55,7 @@ public class SecurityConfig {
         provider.setPasswordEncoder(passwordEncoderConfig.passwordEncoder());
 
         return provider;
-    } 
+    }
 
-   
 
 }

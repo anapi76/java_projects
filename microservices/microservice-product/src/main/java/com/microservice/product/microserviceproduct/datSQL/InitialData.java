@@ -3,10 +3,10 @@ package com.microservice.product.microserviceproduct.datSQL;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.microservice.product.microserviceproduct.persistence.DAO.iProductDAO;
-import com.microservice.product.microserviceproduct.persistence.DAO.iTypeProductDAO;
-import com.microservice.product.microserviceproduct.persistence.entity.ProductEntity;
-import com.microservice.product.microserviceproduct.persistence.entity.TypeProductEntity;
+import com.microservice.product.microserviceproduct.repository.DAO.iProductDAO;
+import com.microservice.product.microserviceproduct.repository.DAO.iTypeProductDAO;
+import com.microservice.product.microserviceproduct.entity.ProductEntity;
+import com.microservice.product.microserviceproduct.entity.TypeProductEntity;
 
 @Component
 public class InitialData implements CommandLineRunner {

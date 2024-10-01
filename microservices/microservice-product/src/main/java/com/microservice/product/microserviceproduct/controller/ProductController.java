@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.microservice.product.microserviceproduct.domain.service.iProductService;
+import com.microservice.product.microserviceproduct.service.iProductService;
 import com.microservice.product.microserviceproduct.dto.ProductDTO;
 import com.microservice.product.microserviceproduct.dto.ProductDTOController;
 import com.microservice.product.microserviceproduct.exceptions.ProductCantBeNullException;
@@ -26,7 +26,7 @@ public class ProductController {
         this.controllerMapperDto = controllerMapperDto;
     }
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();
             return new ResponseEntity<>(products, HttpStatus.OK);

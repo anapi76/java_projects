@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservice.user.microserviceuser.domain.service.iUserService;
+import com.microservice.user.microserviceuser.service.iUserService;
 import com.microservice.user.microserviceuser.dto.UserDTO;
 import com.microservice.user.microserviceuser.dto.UserDTOController;
 import com.microservice.user.microserviceuser.exceptions.RoleNotFoundException;
@@ -34,7 +34,7 @@ public class UserController {
         this.controllerMapperDto=controllerMapperDto;
     }
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<List<UserDTO>> findAll() {
         List<UserDTO> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);

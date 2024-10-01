@@ -11,7 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-import com.microservice.product.microserviceproduct.domain.service.JwtService;
+import com.microservice.product.microserviceproduct.service.JwtService;
 import com.microservice.product.microserviceproduct.security.JwtTokenValidator;
 
 
@@ -39,7 +39,10 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.POST, "/product/create").authenticated();
                     http.requestMatchers(HttpMethod.PUT, "/product/update/*").authenticated();
                     http.requestMatchers(HttpMethod.DELETE, "/product/delete/*").authenticated();
+                    http.requestMatchers(HttpMethod.GET, "/typeProduct").authenticated();
                     http.requestMatchers(HttpMethod.GET, "/typeProduct/*").authenticated();
+                    http.requestMatchers("/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**").permitAll();
+                    http.anyRequest().denyAll();
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtService), BasicAuthenticationFilter.class)
                 .build();

@@ -3,8 +3,8 @@ package com.microservice.user.microserviceuser.mapper;
 import org.springframework.stereotype.Component;
 
 import com.microservice.user.microserviceuser.dto.UserDTO;
-import com.microservice.user.microserviceuser.persistence.entities.RoleEntity;
-import com.microservice.user.microserviceuser.persistence.entities.UserEntity;
+import com.microservice.user.microserviceuser.entities.RoleEntity;
+import com.microservice.user.microserviceuser.entities.UserEntity;
 
 @Component
 public class DTOMapperUser {

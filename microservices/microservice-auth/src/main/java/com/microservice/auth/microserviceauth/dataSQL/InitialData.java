@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.microservice.auth.microserviceauth.entity.AuthUserEntity;
 import com.microservice.auth.microserviceauth.entity.RoleEntity;
-import com.microservice.auth.microserviceauth.persistance.DAO.iAuthUserDAO;
-import com.microservice.auth.microserviceauth.persistance.DAO.iRoleDAO;
+import com.microservice.auth.microserviceauth.repository.DAO.iAuthUserDAO;
+import com.microservice.auth.microserviceauth.repository.DAO.iRoleDAO;
 
 @Component
 public class InitialData implements CommandLineRunner {

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.microservice.product.microserviceproduct.domain.service.iTypeProductService;
+import com.microservice.product.microserviceproduct.service.iTypeProductService;
 import com.microservice.product.microserviceproduct.dto.TypeProductDTO;
 import com.microservice.product.microserviceproduct.exceptions.TypeProductNotFoundException;
 

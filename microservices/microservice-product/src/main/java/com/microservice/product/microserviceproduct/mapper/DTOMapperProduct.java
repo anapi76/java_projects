@@ -3,8 +3,8 @@ package com.microservice.product.microserviceproduct.mapper;
 import org.springframework.stereotype.Component;
 
 import com.microservice.product.microserviceproduct.dto.ProductDTO;
-import com.microservice.product.microserviceproduct.persistence.entity.ProductEntity;
-import com.microservice.product.microserviceproduct.persistence.entity.TypeProductEntity;
+import com.microservice.product.microserviceproduct.entity.ProductEntity;
+import com.microservice.product.microserviceproduct.entity.TypeProductEntity;
 
 
 

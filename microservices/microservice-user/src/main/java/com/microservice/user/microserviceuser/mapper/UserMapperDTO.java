@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.microservice.user.microserviceuser.dto.RoleDTO;
 import com.microservice.user.microserviceuser.dto.UserDTO;
-import com.microservice.user.microserviceuser.persistence.entities.UserEntity;
+import com.microservice.user.microserviceuser.entities.UserEntity;
 
 
 @Component

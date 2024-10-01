@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.microservice.auth.microserviceauth.dto.RoleDTO;
 import com.microservice.auth.microserviceauth.exceptions.RoleNotFoundException;
 
-@Repository
 public interface iRoleRepository {
 
     //public RoleDTO findRoleByName(String name);

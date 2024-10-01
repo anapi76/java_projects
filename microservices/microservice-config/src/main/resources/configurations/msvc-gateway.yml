@@ -1,31 +1,31 @@
 server:
-  port: 8081
+  port: 8083
 
 spring:
   application:
     name: msvc-gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
       routes:
-        - id: users-service
-          uri: http://localhost: 8090
-          predicates:
-           - Path=/user/**
-        - id: products-service
-          uri: http://localhost: 9090
-          predicates:
-           - Path=/product/**
-        - id: typeProducts-service
-          uri: http://localhost: 9090
-          predicates:
-           - Path=/typeProduct/**
         - id: auth-service
-          uri: http://localhost: 8088
+          uri: lb://msvc-auth
           predicates:
-           - Path=/auth/**
-eureka:
-  cliente:
-    register-with-eureka: false
+            - Path=/auth/**
+        - id: user-service
+          uri: lb://msvc-user
+          predicates:
+            - Path=/user/**
+        - id: product-service
+          uri: lb://msvc-product
+          predicates:
+            - Path=/product/**
+        - id: typeProduct-service
+          uri: lb://msvc-product
+          predicates:
+            - Path=/typeProduct/**
+  eureka:
+    client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka/

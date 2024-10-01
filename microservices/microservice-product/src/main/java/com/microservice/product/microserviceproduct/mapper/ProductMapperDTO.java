@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.microservice.product.microserviceproduct.dto.ProductDTO;
 import com.microservice.product.microserviceproduct.dto.TypeProductDTO;
-import com.microservice.product.microserviceproduct.persistence.entity.ProductEntity;
+import com.microservice.product.microserviceproduct.entity.ProductEntity;
 
 @Component
 public class ProductMapperDTO {

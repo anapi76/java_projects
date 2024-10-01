@@ -3,7 +3,7 @@ package com.microservice.user.microserviceuser.mapper;
 import org.springframework.stereotype.Component;
 
 import com.microservice.user.microserviceuser.dto.RoleDTO;
-import com.microservice.user.microserviceuser.persistence.entities.RoleEntity;
+import com.microservice.user.microserviceuser.entities.RoleEntity;
 
 
 @Component

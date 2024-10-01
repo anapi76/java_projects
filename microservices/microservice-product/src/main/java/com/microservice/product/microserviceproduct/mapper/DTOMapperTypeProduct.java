@@ -3,7 +3,7 @@ package com.microservice.product.microserviceproduct.mapper;
 import org.springframework.stereotype.Component;
 
 import com.microservice.product.microserviceproduct.dto.TypeProductDTO;
-import com.microservice.product.microserviceproduct.persistence.entity.TypeProductEntity;
+import com.microservice.product.microserviceproduct.entity.TypeProductEntity;
 
 @Component
 public class DTOMapperTypeProduct {
