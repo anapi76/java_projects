@@ -1,4 +1,14 @@
-## Katas Prácticas
+[![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white)](https://www.java.com) 
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot) 
+[![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white)](https://spring.io/projects/spring-security) 
+[![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-6DB33F?style=flat&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud) 
+[![Eureka](https://img.shields.io/badge/Eureka-6DB33F?style=flat&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud) 
+[![Config](https://img.shields.io/badge/Spring%20Config-6DB33F?style=flat&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud-config) 
+[![Gateway](https://img.shields.io/badge/Spring%20Gateway-6DB33F?style=flat&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud-gateway) 
+[![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat&logo=apache-maven&logoColor=white)](https://maven.apache.org/) 
+[![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=json-web-tokens&logoColor=white)](https://jwt.io/) 
+[![JDK](https://img.shields.io/badge/JDK-007396?style=flat&logo=java&logoColor=white)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+## Katas Java
 
 ### 1. [**Palíndromo**](/palindromo)
 Implementación de una función que determina si una palabra o frase es un palíndromo, es decir, que se lee igual de izquierda a derecha que de derecha a izquierda.
