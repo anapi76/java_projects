@@ -28,7 +28,7 @@ Microservices application
   - `POST /auth/Validate`: Validate the token.
   - `POST /auth/register`: Create a user.
 
-### 4. [User Microservice](microservice-auth)
+### 4. [User Microservice](microservice-user)
 - **Description**: Handles business logic related to users.
 - **Routes** (with token):
   - `GET /user`: Get all users.
