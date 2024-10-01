@@ -64,11 +64,11 @@ Microservices application
 6. **API Gateway**: Run the API Gateway at `http://localhost:8083`
 
 ## Steps in Postman
-1. User Registration (username, password)
+1. **User Registration** (username, password)
    Endpoint: http://localhost:8083/auth/register
-2. User Login - Log in with your credentials to obtain an authentication token.
+2. **User Login** - Log in with your credentials to obtain an authentication token.
    Endpoint: http://localhost:8083/auth/login
-3. Accessing Protected Resources (Include the token in the Authorization header of your requests) - 
+3. **Accessing Protected Resources** (Include the token in the Authorization header of your requests) - 
    Once you have the token, you can use it to access protected routes for the product, user, or typeProduct services.
    
 
